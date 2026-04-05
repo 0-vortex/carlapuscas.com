@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://carlapuscas.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/about" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/about" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/about" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/about" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/about" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/about" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/about" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/about" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/about" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/services" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/services" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/services" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/services" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/services" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/services" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/services" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/services" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/services" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/contact" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/contact" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/contact" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/contact" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/contact" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/contact" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog/career-change-at-40</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/career-change-at-40" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/career-change-at-40" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/career-change-at-40" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog/career-change-at-40</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/career-change-at-40" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/career-change-at-40" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/career-change-at-40" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog/career-change-at-40</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/career-change-at-40" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/career-change-at-40" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/career-change-at-40" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog/first-session</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/first-session" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/first-session" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/first-session" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog/first-session</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/first-session" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/first-session" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/first-session" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog/first-session</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/first-session" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/first-session" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/first-session" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog/five-small-shifts</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/five-small-shifts" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/five-small-shifts" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/five-small-shifts" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog/five-small-shifts</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/five-small-shifts" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/five-small-shifts" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/five-small-shifts" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog/five-small-shifts</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/five-small-shifts" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/five-small-shifts" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/five-small-shifts" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog/neurodiversity-in-the-classroom</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/neurodiversity-in-the-classroom" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/neurodiversity-in-the-classroom" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/neurodiversity-in-the-classroom" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog/neurodiversity-in-the-classroom</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/neurodiversity-in-the-classroom" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/neurodiversity-in-the-classroom" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/neurodiversity-in-the-classroom" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog/neurodiversity-in-the-classroom</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/neurodiversity-in-the-classroom" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/neurodiversity-in-the-classroom" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/neurodiversity-in-the-classroom" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog/power-of-small-rituals</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/power-of-small-rituals" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/power-of-small-rituals" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/power-of-small-rituals" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog/power-of-small-rituals</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/power-of-small-rituals" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/power-of-small-rituals" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/power-of-small-rituals" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog/power-of-small-rituals</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/power-of-small-rituals" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/power-of-small-rituals" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/power-of-small-rituals" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/blog/school-transitions</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/school-transitions" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/school-transitions" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/school-transitions" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/ro/blog/school-transitions</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/school-transitions" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/school-transitions" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/school-transitions" />
+  </url>
+  <url>
+    <loc>https://carlapuscas.com/hu/blog/school-transitions</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carlapuscas.com/blog/school-transitions" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://carlapuscas.com/ro/blog/school-transitions" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://carlapuscas.com/hu/blog/school-transitions" />
+  </url>
+</urlset>
