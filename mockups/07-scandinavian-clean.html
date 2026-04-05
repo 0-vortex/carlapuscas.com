@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CUSTOM PROPERTIES
+       ======================================== */
+    :root {
+      --color-bg: #FAFAFA;
+      --color-fg: #3D3D3D;
+      --color-birch: #D4C5A9;
+      --color-blue: #7B9DAC;
+      --color-muted: #8A8A8A;
+      --color-light: #F0F0F0;
+      --color-warm: #F5F2ED;
+      --font-display: 'Libre Baskerville', Georgia, serif;
+      --font-body: 'Karla', sans-serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-2xl: 8rem;
+      --max-width: 1080px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ========================================
+       RESET
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ========================================
+       FOCUS & ACCESSIBILITY
+       ======================================== */
+    :focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ========================================
+       SKIP LINK
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-blue);
+      color: #FFFFFF;
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      letter-spacing: 0.05em;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: var(--space-sm);
+    }
+
+    /* ========================================
+       LAYOUT
+       ======================================== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ========================================
+       HEADER / NAV
+       ======================================== */
+    .site-header {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-light);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .nav-list a {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      letter-spacing: 0.04em;
+      transition: color var(--transition);
+    }
+
+    .nav-list a:hover {
+      color: var(--color-fg);
+    }
+
+    .nav-list a[aria-current="page"] {
+      color: var(--color-fg);
+      position: relative;
+    }
+
+    .nav-list a[aria-current="page"]::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-blue);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-light);
+      padding: 0.4rem 0.8rem;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .menu-toggle:hover {
+      color: var(--color-fg);
+      border-color: var(--color-fg);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      padding: var(--space-2xl) 0;
+    }
+
+    .hero-content {
+      max-width: 640px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-blue);
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.35;
+      margin-bottom: var(--space-md);
+      color: var(--color-fg);
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--color-muted);
+      margin-bottom: var(--space-lg);
+      max-width: 520px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.875rem 1.75rem;
+      background: var(--color-fg);
+      color: var(--color-bg);
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-blue);
+    }
+
+    .btn-primary .arrow {
+      font-size: 1.125rem;
+      transition: transform var(--transition);
+    }
+
+    .btn-primary:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ========================================
+       SERVICES
+       ======================================== */
+    .services {
+      padding: var(--space-xl) 0;
+      background: var(--color-warm);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-heading h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .section-heading .dash {
+      flex-grow: 1;
+      height: 1px;
+      background: var(--color-birch);
+      opacity: 0.6;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .service-card {
+      background: var(--color-bg);
+      padding: var(--space-md) var(--space-md) var(--space-lg);
+      border-top: 1px solid var(--color-blue);
+      position: relative;
+      transition: box-shadow var(--transition);
+    }
+
+    /* Paper texture via CSS noise */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .service-icon {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-blue);
+      margin-bottom: var(--space-md);
+      display: block;
+      line-height: 1;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 400;
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .service-card p {
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      color: var(--color-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .service-link {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap var(--transition);
+    }
+
+    .service-link:hover {
+      gap: 0.75rem;
+    }
+
+    /* ========================================
+       BLOG TEASER
+       ======================================== */
+    .blog-teaser {
+      padding: var(--space-xl) 0;
+    }
+
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-entry {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-light);
+      align-items: start;
+    }
+
+    .blog-entry:first-child {
+      padding-top: 0;
+    }
+
+    .blog-entry:last-child {
+      border-bottom: none;
+    }
+
+    .blog-date {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      padding-top: 0.35rem;
+    }
+
+    .blog-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.45;
+      margin-bottom: var(--space-xs);
+    }
+
+    .blog-body h3 a {
+      transition: color var(--transition);
+    }
+
+    .blog-body h3 a:hover {
+      color: var(--color-blue);
+    }
+
+    .blog-excerpt {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--color-muted);
+    }
+
+    .blog-tag {
+      display: inline-block;
+      margin-top: var(--space-xs);
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-blue);
+      background: rgba(123, 157, 172, 0.08);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* ========================================
+       CONTACT CTA
+       ======================================== */
+    .contact-cta {
+      padding: var(--space-xl) 0 var(--space-2xl);
+      background: var(--color-warm);
+    }
+
+    .cta-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .cta-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: var(--space-sm);
+    }
+
+    .cta-text p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--color-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .cta-aside {
+      background: var(--color-bg);
+      padding: var(--space-lg);
+      border-top: 1px solid var(--color-blue);
+      position: relative;
+    }
+
+    .cta-aside::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .cta-aside > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-detail {
+      margin-bottom: var(--space-md);
+    }
+
+    .cta-detail:last-child {
+      margin-bottom: 0;
+    }
+
+    .cta-detail-label {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-muted);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .cta-detail-value {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-fg);
+    }
+
+    .cta-detail-value a {
+      color: var(--color-blue);
+      transition: color var(--transition);
+    }
+
+    .cta-detail-value a:hover {
+      color: var(--color-fg);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .site-footer {
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--color-light);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      line-height: 1.75;
+    }
+
+    .footer-copy strong {
+      font-weight: 600;
+      color: var(--color-fg);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-blue);
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      .cta-content {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-entry {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .blog-date {
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --space-xl: 4rem;
+        --space-2xl: 5rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-xs);
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--color-light);
+        margin-top: var(--space-sm);
+      }
+
+      .nav-list.is-open {
+        display: flex;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .cta-aside {
+        padding: var(--space-md);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="site-name">Carla Puscas</div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+          Menu
+        </button>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list" id="main-nav">
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Psychology &amp; Counseling</span>
+          <h1>Thoughtful care for the mind, grounded in evidence and delivered with warmth</h1>
+          <p class="hero-sub">
+            Clinical psychology, educational assessment, and vocational counseling. A practice built on listening first and acting with intention.
+          </p>
+          <a href="#contact" class="btn-primary">
+            Get in touch
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="services-heading">Services</h2>
+          <span class="dash" aria-hidden="true"></span>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">i.</span>
+            <h3>Clinical Psychology</h3>
+            <p>
+              Individual therapy and psychological assessment for adults navigating anxiety, depression, trauma, and life transitions. Evidence-based approaches shaped to your experience.
+            </p>
+            <a href="#" class="service-link">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">ii.</span>
+            <h3>Educational Psychology</h3>
+            <p>
+              Comprehensive cognitive and learning evaluations for children and adults. Clarity that empowers families, educators, and learners to move forward together.
+            </p>
+            <a href="#" class="service-link">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon" aria-hidden="true">iii.</span>
+            <h3>Vocational Counseling</h3>
+            <p>
+              Career assessment, professional transition support, and vocational rehabilitation. Aligning the work you do with the person you are becoming.
+            </p>
+            <a href="#" class="service-link">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG TEASER -->
+    <section class="blog-teaser" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="blog-heading">Recent Writing</h2>
+          <span class="dash" aria-hidden="true"></span>
+        </div>
+        <div class="blog-list">
+          <article class="blog-entry">
+            <time class="blog-date" datetime="2026-03-15">Mar 15, 2026</time>
+            <div class="blog-body">
+              <h3><a href="#">On the myth of "not being ready" for therapy</a></h3>
+              <p class="blog-excerpt">
+                The idea that you need to reach a certain threshold of suffering before seeking help is one of the most persistent barriers to mental health care.
+              </p>
+              <span class="blog-tag">Clinical</span>
+            </div>
+          </article>
+          <article class="blog-entry">
+            <time class="blog-date" datetime="2026-02-20">Feb 20, 2026</time>
+            <div class="blog-body">
+              <h3><a href="#">Learning differences are not deficits</a></h3>
+              <p class="blog-excerpt">
+                When we reframe how we talk about neurodivergence in educational settings, we change the trajectory of a child's self-understanding.
+              </p>
+              <span class="blog-tag">Educational</span>
+            </div>
+          </article>
+          <article class="blog-entry">
+            <time class="blog-date" datetime="2026-01-10">Jan 10, 2026</time>
+            <div class="blog-body">
+              <h3><a href="#">Finding purpose after burnout: a vocational perspective</a></h3>
+              <p class="blog-excerpt">
+                Burnout isn't just about workload. It's often a signal that our work has drifted from our core values.
+              </p>
+              <span class="blog-tag">Vocational</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact-cta" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="cta-content">
+          <div class="cta-text">
+            <h2 id="contact-heading">Taking the first step is often the hardest part</h2>
+            <p>
+              Whether you have a clear question or just a feeling that something needs to change, I'm here to listen. No jargon, no pressure.
+            </p>
+            <a href="mailto:hello@carlapuscas.com" class="btn-primary">
+              Send a message
+              <span class="arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          <aside class="cta-aside">
+            <div class="cta-detail">
+              <span class="cta-detail-label">Email</span>
+              <span class="cta-detail-value">
+                <a href="mailto:hello@carlapuscas.com">hello@carlapuscas.com</a>
+              </span>
+            </div>
+            <div class="cta-detail">
+              <span class="cta-detail-label">Location</span>
+              <span class="cta-detail-value">In-person &amp; online sessions</span>
+            </div>
+            <div class="cta-detail">
+              <span class="cta-detail-label">Response time</span>
+              <span class="cta-detail-value">Within 48 hours</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">
+          &copy; 2026 <strong>Carla Puscas</strong><br>
+          Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('main-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          var expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('is-open');
+          toggle.textContent = expanded ? 'Close' : 'Menu';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

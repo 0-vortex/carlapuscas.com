@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-midnight: #1A1B2F;
+      --color-gold: #D4A843;
+      --color-ivory: #F1ECE1;
+      --color-teal: #2F7B6F;
+      --color-gold-light: #E8D5A0;
+      --color-midnight-soft: #2A2B45;
+      --font-display: 'Poiret One', cursive;
+      --font-body: 'Raleway', sans-serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-2xl: 8rem;
+      --max-width: 1200px;
+      --transition-base: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-midnight);
+      background-color: var(--color-ivory);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--color-gold);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-gold);
+      color: var(--color-midnight);
+      padding: var(--space-xs) var(--space-sm);
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 1000;
+      border-radius: 0 0 4px 4px;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Utilities */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ================================
+       HEADER & NAVIGATION
+       ================================ */
+    .site-header {
+      background: var(--color-midnight);
+      border-bottom: 3px solid var(--color-gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-sm) var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--color-gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .nav-list a {
+      color: var(--color-ivory);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: var(--space-xs) 0;
+      position: relative;
+      transition: color var(--transition-base);
+    }
+
+    .nav-list a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--color-gold);
+      transition: width var(--transition-base);
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus-visible {
+      color: var(--color-gold);
+    }
+
+    .nav-list a:hover::after,
+    .nav-list a:focus-visible::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 2px solid var(--color-gold);
+      color: var(--color-gold);
+      padding: var(--space-xs);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* ================================
+       ART DECO FAN / SUNBURST DIVIDER
+       ================================ */
+    .deco-divider {
+      width: 100%;
+      height: 120px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deco-divider::before {
+      content: '';
+      width: 240px;
+      height: 120px;
+      border-radius: 240px 240px 0 0;
+      background: conic-gradient(
+        from 180deg at 50% 100%,
+        var(--color-gold) 0deg,
+        transparent 10deg,
+        transparent 20deg,
+        var(--color-gold) 20deg,
+        var(--color-gold) 22deg,
+        transparent 22deg,
+        transparent 38deg,
+        var(--color-gold) 38deg,
+        var(--color-gold) 40deg,
+        transparent 40deg,
+        transparent 56deg,
+        var(--color-gold) 56deg,
+        var(--color-gold) 58deg,
+        transparent 58deg,
+        transparent 74deg,
+        var(--color-gold) 74deg,
+        var(--color-gold) 76deg,
+        transparent 76deg,
+        transparent 92deg,
+        var(--color-gold) 92deg,
+        var(--color-gold) 94deg,
+        transparent 94deg,
+        transparent 104deg,
+        var(--color-gold) 104deg,
+        var(--color-gold) 106deg,
+        transparent 106deg,
+        transparent 122deg,
+        var(--color-gold) 122deg,
+        var(--color-gold) 124deg,
+        transparent 124deg,
+        transparent 140deg,
+        var(--color-gold) 140deg,
+        var(--color-gold) 142deg,
+        transparent 142deg,
+        transparent 158deg,
+        var(--color-gold) 158deg,
+        var(--color-gold) 160deg,
+        transparent 160deg,
+        transparent 176deg,
+        var(--color-gold) 176deg,
+        var(--color-gold) 180deg
+      );
+      opacity: 0.5;
+    }
+
+    .deco-divider::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--color-gold);
+    }
+
+    .deco-divider--dark {
+      background: var(--color-midnight);
+    }
+
+    .deco-divider--dark::before {
+      opacity: 0.35;
+    }
+
+    /* Chevron border pattern */
+    .deco-chevron-border {
+      width: 100%;
+      height: 24px;
+      background:
+        linear-gradient(135deg, var(--color-ivory) 33.33%, transparent 33.33%) 0 0,
+        linear-gradient(225deg, var(--color-ivory) 33.33%, transparent 33.33%) 0 0;
+      background-size: 24px 24px;
+      background-color: var(--color-midnight);
+    }
+
+    .deco-chevron-border--reverse {
+      background:
+        linear-gradient(315deg, var(--color-midnight) 33.33%, transparent 33.33%) 0 0,
+        linear-gradient(45deg, var(--color-midnight) 33.33%, transparent 33.33%) 0 0;
+      background-size: 24px 24px;
+      background-color: var(--color-ivory);
+    }
+
+    /* ================================
+       HERO SECTION
+       ================================ */
+    .hero {
+      background: var(--color-midnight);
+      color: var(--color-ivory);
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md) var(--space-xl);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent calc(50% - 300px),
+          rgba(212, 168, 67, 0.06) calc(50% - 300px),
+          rgba(212, 168, 67, 0.06) calc(50% - 298px),
+          transparent calc(50% - 298px),
+          transparent calc(50% + 298px),
+          rgba(212, 168, 67, 0.06) calc(50% + 298px),
+          rgba(212, 168, 67, 0.06) calc(50% + 300px),
+          transparent calc(50% + 300px)
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 60px,
+          rgba(212, 168, 67, 0.04) 60px,
+          rgba(212, 168, 67, 0.04) 62px,
+          transparent 62px
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-ornament {
+      display: inline-block;
+      width: 80px;
+      height: 2px;
+      background: var(--color-gold);
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+
+    .hero-ornament::before,
+    .hero-ornament::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--color-gold);
+      transform: rotate(45deg);
+    }
+
+    .hero-ornament::before { left: -16px; }
+    .hero-ornament::after { right: -16px; }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.15;
+      color: var(--color-gold);
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-subtitle {
+      font-weight: 300;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--color-gold-light);
+      margin-bottom: var(--space-lg);
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--color-gold);
+      color: var(--color-gold);
+      background: transparent;
+      transition: all var(--transition-base);
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: var(--color-gold);
+      color: var(--color-midnight);
+    }
+
+    .btn--filled {
+      background: var(--color-gold);
+      color: var(--color-midnight);
+    }
+
+    .btn--filled:hover,
+    .btn--filled:focus-visible {
+      background: transparent;
+      color: var(--color-gold);
+    }
+
+    .btn--teal {
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+    }
+
+    .btn--teal:hover,
+    .btn--teal:focus-visible {
+      background: var(--color-teal);
+      color: var(--color-ivory);
+    }
+
+    /* ================================
+       SERVICES SECTION
+       ================================ */
+    .services {
+      padding: var(--space-xl) var(--space-md);
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: var(--space-xs);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: 0.08em;
+      color: var(--color-midnight);
+      margin-bottom: var(--space-lg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .service-card {
+      border: 2px solid var(--color-gold);
+      padding: var(--space-lg) var(--space-md);
+      position: relative;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(26, 27, 47, 0.12);
+    }
+
+    /* Geometric corner accents */
+    .service-card::before,
+    .service-card::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--color-gold);
+    }
+
+    .service-card::before {
+      top: 8px;
+      left: 8px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .service-card::after {
+      bottom: 8px;
+      right: 8px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .service-card-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-sm);
+      border: 2px solid var(--color-gold);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card-icon span {
+      transform: rotate(-45deg);
+      font-size: 1.25rem;
+      color: var(--color-teal);
+      font-weight: 600;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--color-midnight);
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card p {
+      font-weight: 300;
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--color-midnight-soft);
+    }
+
+    /* ================================
+       BLOG SECTION
+       ================================ */
+    .blog {
+      background: var(--color-midnight);
+      color: var(--color-ivory);
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .blog .section-label { color: var(--color-gold-light); }
+    .blog .section-title { color: var(--color-gold); text-align: center; }
+    .blog .section-label { text-align: center; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .blog-card {
+      border: 1px solid rgba(212, 168, 67, 0.3);
+      padding: var(--space-md);
+      transition: border-color var(--transition-base);
+    }
+
+    .blog-card:hover {
+      border-color: var(--color-gold);
+    }
+
+    .blog-card-date {
+      font-size: 0.8125rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: var(--space-xs);
+    }
+
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+      color: var(--color-gold);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    .blog-card p {
+      font-weight: 300;
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--color-gold-light);
+      opacity: 0.85;
+    }
+
+    .blog-card-link {
+      display: inline-block;
+      margin-top: var(--space-sm);
+      color: var(--color-teal);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-base);
+    }
+
+    .blog-card-link:hover,
+    .blog-card-link:focus-visible {
+      border-bottom-color: var(--color-teal);
+    }
+
+    /* ================================
+       CONTACT CTA
+       ================================ */
+    .contact-cta {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md);
+      position: relative;
+    }
+
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      top: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(600px, 80%);
+      height: calc(100% - var(--space-2xl));
+      border: 2px solid var(--color-gold);
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    .contact-cta .section-title {
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-cta p {
+      font-weight: 300;
+      font-size: 1.0625rem;
+      max-width: 500px;
+      margin: 0 auto var(--space-md);
+      line-height: 1.8;
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+    .site-footer {
+      background: var(--color-midnight);
+      color: var(--color-gold-light);
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      border-top: 3px solid var(--color-gold);
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-credentials {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-sm);
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links a {
+      color: var(--color-gold-light);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color var(--transition-base);
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--color-gold);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    /* ================================
+       RESPONSIVE
+       ================================ */
+    @media (max-width: 900px) {
+      .services-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-midnight);
+        padding: var(--space-md);
+        border-bottom: 3px solid var(--color-gold);
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .nav-list.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .header-inner {
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .deco-divider {
+        height: 80px;
+      }
+
+      .deco-divider::before {
+        width: 160px;
+        height: 80px;
+        border-radius: 160px 160px 0 0;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-name">Carla Puscas</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list" id="main-nav">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-ornament" aria-hidden="true"></div>
+      <h1>Clarity Through Understanding</h1>
+      <p class="hero-subtitle">Clinical psychology, educational assessment, and vocational guidance — grounded in evidence, shaped by empathy, delivered with care.</p>
+      <a href="#contact" class="btn btn--filled">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Deco divider: fan sunburst -->
+  <div class="deco-chevron-border" aria-hidden="true"></div>
+
+  <!-- SERVICES -->
+  <section class="services" aria-labelledby="services-title">
+    <p class="section-label">What I Offer</p>
+    <h2 class="section-title" id="services-title">Areas of Practice</h2>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-card-icon" aria-hidden="true"><span>I</span></div>
+        <h3>Clinical Psychology</h3>
+        <p>Individual therapy for adults navigating anxiety, depression, grief, and life transitions. Evidence-based approaches tailored to your unique experience and goals.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-card-icon" aria-hidden="true"><span>II</span></div>
+        <h3>Educational Psychology</h3>
+        <p>Comprehensive assessments and interventions for children and adolescents. Understanding learning differences, attention challenges, and emotional development.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-card-icon" aria-hidden="true"><span>III</span></div>
+        <h3>Vocational Counseling</h3>
+        <p>Career assessment, professional direction, and purpose-aligned guidance for individuals at crossroads — from students choosing paths to professionals seeking change.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Deco divider -->
+  <div class="deco-divider" aria-hidden="true"></div>
+  <div class="deco-chevron-border--reverse" style="height:24px" aria-hidden="true"></div>
+
+  <!-- BLOG -->
+  <section class="blog" aria-labelledby="blog-title">
+    <p class="section-label">From the Journal</p>
+    <h2 class="section-title" id="blog-title">Recent Reflections</h2>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <p class="blog-card-date">March 2026</p>
+        <h3>Why Perfectionism Isn't What You Think It Is</h3>
+        <p>Exploring the hidden costs of striving for flawlessness and the surprising link between perfectionism and self-compassion.</p>
+        <a href="#" class="blog-card-link">Read More</a>
+      </article>
+      <article class="blog-card">
+        <p class="blog-card-date">February 2026</p>
+        <h3>The Quiet Power of Routine in Uncertain Times</h3>
+        <p>How small daily structures can become anchors for emotional stability when the world feels unpredictable.</p>
+        <a href="#" class="blog-card-link">Read More</a>
+      </article>
+      <article class="blog-card">
+        <p class="blog-card-date">January 2026</p>
+        <h3>Helping Children Name Their Emotions</h3>
+        <p>A practical guide for parents and educators on building emotional vocabulary from an early age.</p>
+        <a href="#" class="blog-card-link">Read More</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Deco divider -->
+  <div class="deco-chevron-border" aria-hidden="true"></div>
+  <div class="deco-divider" aria-hidden="true"></div>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" id="contact" aria-labelledby="contact-title">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title" id="contact-title">Begin Your Journey</h2>
+    <p>Whether you are seeking support for yourself, your child, or your career direction, the first step is a conversation. I would be glad to hear from you.</p>
+    <a href="mailto:hello@carlapuscas.com" class="btn btn--teal">Contact Me</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-name">Carla Puscas</p>
+  <p class="footer-credentials">Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor</p>
+  <ul class="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Carla Puscas. All rights reserved.</p>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.menu-toggle');
+    var nav = document.querySelector('#main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

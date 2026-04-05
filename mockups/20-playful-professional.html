@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS Custom Properties
+       ======================================== */
+    :root {
+      --color-bg: #FFFBF5;
+      --color-teal: #2DAAAA;
+      --color-teal-dark: #238E8E;
+      --color-teal-light: #E6F5F5;
+      --color-coral: #E87B63;
+      --color-coral-dark: #D06650;
+      --color-coral-light: #FDF0ED;
+      --color-purple: #8B7BB5;
+      --color-purple-dark: #6F6199;
+      --color-purple-light: #F1EEF7;
+      --color-dark: #2A2A2A;
+      --color-muted: #6B6B6B;
+      --color-light: #E8E5E0;
+      --color-surface: #F7F4EF;
+
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'Atkinson Hyperlegible', sans-serif;
+
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 6rem;
+      --space-5xl: 8rem;
+
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --radius-xl: 2rem;
+      --radius-pill: 100vw;
+      --radius-circle: 50%;
+    }
+
+    /* ========================================
+       Reset
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-dark);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ========================================
+       Focus Styles
+       ======================================== */
+    :focus-visible {
+      outline: 3px solid var(--color-teal);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ========================================
+       Reduced Motion
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ========================================
+       Skip Link
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-md);
+      background: var(--color-dark);
+      color: var(--color-bg);
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      border-radius: var(--radius-sm);
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: var(--space-md);
+    }
+
+    /* ========================================
+       Container
+       ======================================== */
+    .container {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    /* ========================================
+       Header / Navigation
+       ======================================== */
+    .site-header {
+      padding: var(--space-lg) 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .site-name-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: var(--color-teal);
+      border-radius: var(--radius-circle);
+      flex-shrink: 0;
+    }
+
+    .main-nav ul {
+      display: flex;
+      gap: var(--space-xs);
+    }
+
+    .main-nav a {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      background: var(--color-surface);
+    }
+
+    .main-nav a[aria-current="page"] {
+      background: var(--color-dark);
+      color: var(--color-bg);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: var(--color-surface);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-pill);
+      color: var(--color-dark);
+    }
+
+    /* ========================================
+       Hero
+       ======================================== */
+    .hero {
+      padding: var(--space-4xl) 0 var(--space-3xl);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--color-teal-light);
+      color: var(--color-teal-dark);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-teal);
+      border-radius: var(--radius-circle);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-headline .accent-teal {
+      color: var(--color-teal);
+    }
+
+    .hero-headline .accent-coral {
+      color: var(--color-coral);
+    }
+
+    .hero-desc {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--color-muted);
+      margin-bottom: var(--space-2xl);
+      max-width: 28rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-bg);
+      background: var(--color-teal);
+      padding: var(--space-md) var(--space-2xl);
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-teal-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-dark);
+      background: transparent;
+      padding: var(--space-md) var(--space-2xl);
+      border-radius: var(--radius-pill);
+      border: 2px solid var(--color-light);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Decorative Shapes */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 24rem;
+    }
+
+    .hero-shape-circle {
+      width: 18rem;
+      height: 18rem;
+      background: var(--color-teal-light);
+      border-radius: var(--radius-circle);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-shape-rounded {
+      width: 10rem;
+      height: 10rem;
+      background: var(--color-coral-light);
+      border-radius: var(--radius-xl);
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      transform: rotate(15deg);
+    }
+
+    .hero-shape-pill {
+      width: 5rem;
+      height: 12rem;
+      background: var(--color-purple-light);
+      border-radius: var(--radius-pill);
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+      transform: rotate(-10deg);
+    }
+
+    .hero-shape-label {
+      position: relative;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-dark);
+      background: var(--color-bg);
+      padding: var(--space-lg) var(--space-2xl);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .hero-shape-label small {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 400;
+      font-family: var(--font-body);
+      color: var(--color-muted);
+      margin-top: var(--space-xs);
+    }
+
+    /* ========================================
+       Services
+       ======================================== */
+    .services {
+      padding: var(--space-4xl) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      background: var(--color-surface);
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .service-card {
+      background: var(--color-bg);
+      border: 2px solid var(--color-light);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+
+    .service-card:nth-child(1) { border-color: var(--color-teal-light); }
+    .service-card:nth-child(2) { border-color: var(--color-coral-light); }
+    .service-card:nth-child(3) { border-color: var(--color-purple-light); }
+
+    .service-card:nth-child(1):hover { border-color: var(--color-teal); }
+    .service-card:nth-child(2):hover { border-color: var(--color-coral); }
+    .service-card:nth-child(3):hover { border-color: var(--color-purple); }
+
+    /* Geometric Shapes per Card */
+    .service-shape {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .shape-circle {
+      width: 5rem;
+      height: 5rem;
+      border-radius: var(--radius-circle);
+      background: var(--color-teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-teal);
+    }
+
+    .service-card:nth-child(1):hover .shape-circle {
+      background: var(--color-teal);
+      color: var(--color-bg);
+    }
+
+    .shape-rounded-square {
+      width: 5rem;
+      height: 5rem;
+      border-radius: var(--radius-lg);
+      background: var(--color-coral-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-coral);
+    }
+
+    .service-card:nth-child(2):hover .shape-rounded-square {
+      background: var(--color-coral);
+      color: var(--color-bg);
+    }
+
+    .shape-pill {
+      width: 3rem;
+      height: 5rem;
+      border-radius: var(--radius-pill);
+      background: var(--color-purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-purple);
+    }
+
+    .service-card:nth-child(3):hover .shape-pill {
+      background: var(--color-purple);
+      color: var(--color-bg);
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .service-text {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--color-muted);
+      margin-bottom: var(--space-xl);
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--color-dark);
+      transition: gap 0.2s ease;
+    }
+
+    .service-link:hover {
+      gap: var(--space-md);
+    }
+
+    .service-card:nth-child(1) .service-link { color: var(--color-teal-dark); }
+    .service-card:nth-child(2) .service-link { color: var(--color-coral-dark); }
+    .service-card:nth-child(3) .service-link { color: var(--color-purple-dark); }
+
+    /* ========================================
+       Blog Teaser
+       ======================================== */
+    .blog-section {
+      padding: var(--space-4xl) 0;
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      margin: 0 var(--space-xl);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .blog-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .blog-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-md);
+    }
+
+    .blog-card:nth-child(1) .blog-tag {
+      background: var(--color-teal-light);
+      color: var(--color-teal-dark);
+    }
+
+    .blog-card:nth-child(2) .blog-tag {
+      background: var(--color-coral-light);
+      color: var(--color-coral-dark);
+    }
+
+    .blog-card:nth-child(3) .blog-tag {
+      background: var(--color-purple-light);
+      color: var(--color-purple-dark);
+    }
+
+    .blog-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: var(--space-md);
+      transition: color 0.2s ease;
+    }
+
+    .blog-card:hover .blog-title {
+      color: var(--color-teal);
+    }
+
+    .blog-excerpt {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--color-muted);
+      margin-bottom: var(--space-lg);
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .blog-date {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+
+    .blog-read-more {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-teal);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: gap 0.2s ease;
+    }
+
+    .blog-read-more:hover {
+      gap: var(--space-sm);
+    }
+
+    /* ========================================
+       Contact CTA
+       ======================================== */
+    .contact-cta {
+      padding: var(--space-5xl) 0;
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 36rem;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Decorative shapes behind CTA */
+    .contact-decor {
+      position: absolute;
+      z-index: 0;
+    }
+
+    .contact-decor-1 {
+      width: 6rem;
+      height: 6rem;
+      background: var(--color-teal-light);
+      border-radius: var(--radius-circle);
+      top: -2rem;
+      left: -4rem;
+    }
+
+    .contact-decor-2 {
+      width: 3rem;
+      height: 3rem;
+      background: var(--color-coral-light);
+      border-radius: var(--radius-md);
+      bottom: -1rem;
+      right: -3rem;
+      transform: rotate(20deg);
+    }
+
+    .contact-decor-3 {
+      width: 2rem;
+      height: 5rem;
+      background: var(--color-purple-light);
+      border-radius: var(--radius-pill);
+      top: 1rem;
+      right: -5rem;
+      transform: rotate(-15deg);
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-subline {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-muted);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--color-bg);
+      background: var(--color-coral);
+      padding: var(--space-lg) var(--space-3xl);
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--color-coral-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      padding: var(--space-3xl) 0 var(--space-xl);
+      margin-top: var(--space-2xl);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      margin-top: var(--space-sm);
+    }
+
+    .footer-credentials {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-lg);
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      background: var(--color-bg);
+      color: var(--color-dark);
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 64rem) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .hero-visual {
+        min-height: 16rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 28rem;
+        margin: 0 auto;
+      }
+
+      .blog-section {
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        max-width: 28rem;
+        margin: 0 auto;
+      }
+
+      .contact-decor {
+        display: none;
+      }
+    }
+
+    @media (max-width: 48rem) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        width: 100%;
+        padding-top: var(--space-lg);
+      }
+
+      .main-nav.is-open {
+        display: block;
+      }
+
+      .main-nav ul {
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+
+      .main-nav a {
+        display: block;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-lg);
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-name" aria-label="Carla Puscas, home page">
+          <span class="site-name-dot" aria-hidden="true"></span>
+          Carla Puscas
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
+          Menu
+        </button>
+        <nav class="main-nav" id="main-menu" aria-label="Main navigation">
+          <ul>
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================
+       Main Content
+       ======================================== -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              Clinical &amp; Educational Psychologist
+            </div>
+            <h1 id="hero-heading" class="hero-headline">
+              Helping you find <span class="accent-teal">clarity</span>,
+              build <span class="accent-coral">resilience</span>,
+              and grow
+            </h1>
+            <p class="hero-desc">
+              Evidence-based psychology and counseling for individuals,
+              families, and young people. Grounded in science, delivered
+              with warmth.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn-primary">Get in Touch &rarr;</a>
+              <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-shape-circle"></div>
+            <div class="hero-shape-rounded"></div>
+            <div class="hero-shape-pill"></div>
+            <div class="hero-shape-label">
+              20+ years of<br>clinical experience
+              <small>Trusted by hundreds of families</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">What I Offer</span>
+          <h2 id="services-heading" class="section-title">Three areas of expertise,<br>one guiding philosophy</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-shape">
+              <div class="shape-circle" aria-hidden="true">CP</div>
+            </div>
+            <h3 class="service-title">Clinical Psychology</h3>
+            <p class="service-text">
+              Evidence-based therapy for adults and adolescents navigating
+              anxiety, depression, trauma, and major life transitions.
+              Collaborative, confidential, and always tailored.
+            </p>
+            <a href="#" class="service-link">Learn more &rarr;</a>
+          </article>
+          <article class="service-card">
+            <div class="service-shape">
+              <div class="shape-rounded-square" aria-hidden="true">EP</div>
+            </div>
+            <h3 class="service-title">Educational Psychology</h3>
+            <p class="service-text">
+              Assessments and interventions for children experiencing learning
+              difficulties, behavioral challenges, and developmental needs
+              within school and family contexts.
+            </p>
+            <a href="#" class="service-link">Learn more &rarr;</a>
+          </article>
+          <article class="service-card">
+            <div class="service-shape">
+              <div class="shape-pill" aria-hidden="true">VC</div>
+            </div>
+            <h3 class="service-title">Vocational Counseling</h3>
+            <p class="service-text">
+              Career exploration and decision-making support for individuals
+              seeking alignment between their values, strengths, and
+              professional direction.
+            </p>
+            <a href="#" class="service-link">Learn more &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Teaser -->
+    <section class="blog-section" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">From the Blog</span>
+          <h2 id="blog-heading" class="section-title">Monthly insights for<br>mind and life</h2>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <a href="#">
+              <span class="blog-tag">Resilience</span>
+              <h3 class="blog-title">The Quiet Architecture of Resilience</h3>
+              <p class="blog-excerpt">
+                Resilience is not an inherent trait but a practice, built
+                through intentional choices in moments of difficulty.
+              </p>
+              <div class="blog-meta">
+                <span class="blog-date">March 2026</span>
+                <span class="blog-read-more">Read &rarr;</span>
+              </div>
+            </a>
+          </article>
+          <article class="blog-card">
+            <a href="#">
+              <span class="blog-tag">Education</span>
+              <h3 class="blog-title">When Children Struggle Beyond the Obvious</h3>
+              <p class="blog-excerpt">
+                Academic difficulties often mask deeper emotional needs.
+                Understanding requires seeing the whole child.
+              </p>
+              <div class="blog-meta">
+                <span class="blog-date">February 2026</span>
+                <span class="blog-read-more">Read &rarr;</span>
+              </div>
+            </a>
+          </article>
+          <article class="blog-card">
+            <a href="#">
+              <span class="blog-tag">Career</span>
+              <h3 class="blog-title">Career Change at 40: Permission to Reinvent</h3>
+              <p class="blog-excerpt">
+                Mid-career transitions are acts of courage. Navigate the
+                uncertainty with clarity and self-compassion.
+              </p>
+              <div class="blog-meta">
+                <span class="blog-date">January 2026</span>
+                <span class="blog-read-more">Read &rarr;</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner">
+          <div class="contact-decor contact-decor-1" aria-hidden="true"></div>
+          <div class="contact-decor contact-decor-2" aria-hidden="true"></div>
+          <div class="contact-decor contact-decor-3" aria-hidden="true"></div>
+          <div class="contact-content">
+            <h2 id="contact-heading" class="contact-headline">
+              Ready to take the first step?
+            </h2>
+            <p class="contact-subline">
+              Every journey starts somewhere. Reach out for a free, no-pressure
+              initial conversation to see if we are the right fit.
+            </p>
+            <a href="mailto:hello@carlapuscas.com" class="contact-btn">
+              Let's Talk &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">
+            <span class="site-name-dot" aria-hidden="true"></span>
+            Carla Puscas
+          </p>
+          <p class="footer-copy">&copy; 2026 Carla Puscas. All rights reserved.</p>
+        </div>
+        <p class="footer-credentials">
+          Clinical Psychologist<br>
+          Educational Psychologist<br>
+          Vocational Counselor
+        </p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       Mobile Menu Script
+       ======================================== -->
+  <script>
+    (function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.textContent = isOpen ? 'Close' : 'Menu';
+      });
+    })();
+  </script>
+</body>
+</html>

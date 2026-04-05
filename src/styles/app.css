@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm earth + mauve palette */
+  --color-cream: #F0EBF0;
+  --color-warm-white: #FBF8FC;
+  --color-sage: #7D8B6A;
+  --color-sage-light: rgba(125, 139, 106, 0.12);
+  --color-clay: #B07A9A;
+  --color-clay-light: rgba(176, 122, 154, 0.12);
+  --color-brown: #352A3A;
+  --color-brown-muted: #6B5E72;
+
+  /* Playful accent trio */
+  --color-teal: #5A9E8F;
+  --color-teal-light: rgba(90, 158, 143, 0.12);
+  --color-coral: #C48BA0;
+  --color-coral-light: rgba(196, 139, 160, 0.12);
+  --color-lavender: #8B6DAE;
+  --color-lavender-light: rgba(139, 109, 174, 0.15);
+
+  /* Aurora gradient tones */
+  --color-aurora-1: rgba(232, 224, 240, 0.35);
+  --color-aurora-2: rgba(245, 225, 230, 0.28);
+  --color-aurora-3: rgba(216, 240, 239, 0.22);
+  --color-aurora-4: rgba(139, 109, 174, 0.12);
+
+  /* Wave / divider */
+  --color-wave: #E8E0F0;
+  --color-wave-dark: #DDD5E8;
+
+  /* Glass */
+  --color-glass-bg: rgba(251, 248, 252, 0.6);
+  --color-glass-border: rgba(255, 255, 255, 0.65);
+
+  /* Fonts */
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* Aurora background animation */
+@keyframes aurora-shift {
+  0% {
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, var(--color-aurora-1) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 15%, var(--color-aurora-2) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 70% at 50% 80%, var(--color-aurora-3) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 30% 55%, var(--color-aurora-4) 0%, transparent 50%);
+    background-color: var(--color-warm-white);
+  }
+  50% {
+    background:
+      radial-gradient(ellipse 70% 70% at 60% 30%, var(--color-aurora-3) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 15% 70%, var(--color-aurora-1) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 50% at 80% 60%, var(--color-aurora-4) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 55% at 50% 20%, var(--color-aurora-2) 0%, transparent 50%);
+    background-color: var(--color-warm-white);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse 75% 55% at 50% 40%, var(--color-aurora-2) 0%, transparent 60%),
+      radial-gradient(ellipse 65% 65% at 15% 60%, var(--color-aurora-4) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 75% at 85% 30%, var(--color-aurora-1) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 40% 80%, var(--color-aurora-3) 0%, transparent 50%);
+    background-color: var(--color-warm-white);
+  }
+}
+
+/* Fan divider conic gradient */
+.fan-divider::before {
+  content: '';
+  width: 200px;
+  height: 100px;
+  border-radius: 200px 200px 0 0;
+  background: conic-gradient(
+    from 180deg at 50% 100%,
+    var(--color-clay) 0deg, transparent 8deg,
+    transparent 20deg, var(--color-clay) 20deg, var(--color-clay) 22deg, transparent 22deg,
+    transparent 38deg, var(--color-clay) 38deg, var(--color-clay) 40deg, transparent 40deg,
+    transparent 56deg, var(--color-clay) 56deg, var(--color-clay) 58deg, transparent 58deg,
+    transparent 74deg, var(--color-clay) 74deg, var(--color-clay) 76deg, transparent 76deg,
+    transparent 92deg, var(--color-clay) 92deg, var(--color-clay) 94deg, transparent 94deg,
+    transparent 104deg, var(--color-clay) 104deg, var(--color-clay) 106deg, transparent 106deg,
+    transparent 122deg, var(--color-clay) 122deg, var(--color-clay) 124deg, transparent 124deg,
+    transparent 140deg, var(--color-clay) 140deg, var(--color-clay) 142deg, transparent 142deg,
+    transparent 158deg, var(--color-clay) 158deg, var(--color-clay) 160deg, transparent 160deg,
+    transparent 176deg, var(--color-clay) 176deg, var(--color-clay) 180deg
+  );
+  opacity: 0.3;
+}
+
+.fan-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: var(--color-clay);
+  opacity: 0.5;
+}
+
+/* Hero ornament diamond caps */
+.hero-ornament::before,
+.hero-ornament::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-clay);
+  transform: rotate(45deg);
+  background: var(--color-warm-white);
+}
+.hero-ornament::before { left: -16px; }
+.hero-ornament::after { right: -16px; }
+
+/* Glass utility */
+@utility glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 20px;
+}
+
+/* Gradient text utility */
+@utility gradient-text {
+  background: linear-gradient(135deg, var(--color-sage), var(--color-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

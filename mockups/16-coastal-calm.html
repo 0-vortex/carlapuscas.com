@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist | Coastal Calm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS Custom Properties
+       ======================================== */
+    :root {
+      --color-sand: #FAF6EF;
+      --color-sand-dark: #EDE5D8;
+      --color-ocean: #3E6B89;
+      --color-ocean-light: #5A8BAA;
+      --color-ocean-dark: #2C5068;
+      --color-ocean-deep: #1E3A50;
+      --color-seafoam: #A8D5D0;
+      --color-seafoam-light: #C5E7E3;
+      --color-seafoam-dark: #7FBAB3;
+      --color-driftwood: #8A7B6B;
+      --color-driftwood-light: #A8997F;
+      --color-driftwood-dark: #6B5E50;
+      --color-white: #FFFFFF;
+
+      --font-display: 'Merriweather', Georgia, serif;
+      --font-body: 'Open Sans', Verdana, sans-serif;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+
+      --shadow-soft: 0 4px 20px rgba(62, 107, 137, 0.08);
+      --shadow-medium: 0 8px 32px rgba(62, 107, 137, 0.12);
+      --shadow-lifted: 0 16px 48px rgba(62, 107, 137, 0.15);
+    }
+
+    /* ========================================
+       Reset
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-ocean-deep);
+      background-color: var(--color-sand);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ========================================
+       Focus Styles
+       ======================================== */
+    :focus-visible {
+      outline: 3px solid var(--color-ocean);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ========================================
+       Reduced Motion
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ========================================
+       Skip Link
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-ocean-deep);
+      color: var(--color-sand);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: var(--space-sm);
+    }
+
+    /* ========================================
+       Typography
+       ======================================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      line-height: 1.25;
+      color: var(--color-ocean-deep);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+    }
+
+    p { max-width: 65ch; }
+
+    /* ========================================
+       Layout
+       ======================================== */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section-padding {
+      padding: var(--space-2xl) 0;
+    }
+
+    /* ========================================
+       Wave Dividers — The Memorable Anchor
+       ======================================== */
+    .wave-divider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .wave-top-sand {
+      margin-bottom: -1px;
+    }
+
+    .wave-top-ocean {
+      margin-bottom: -1px;
+    }
+
+    .wave-bottom-ocean {
+      margin-top: -1px;
+    }
+
+    .wave-bottom-sand {
+      margin-top: -1px;
+    }
+
+    /* ========================================
+       Header & Navigation
+       ======================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 246, 239, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-sm) var(--space-md);
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-ocean-deep);
+    }
+
+    .site-name span {
+      color: var(--color-ocean);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-driftwood-dark);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-ocean);
+    }
+
+    .nav-cta {
+      background: var(--color-ocean);
+      color: var(--color-white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600 !important;
+      transition: background 0.25s ease, transform 0.2s ease !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-ocean-dark) !important;
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-xs);
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-ocean-deep);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* ========================================
+       Hero Section
+       ======================================== */
+    .hero {
+      background: linear-gradient(180deg, var(--color-sand) 0%, var(--color-sand-dark) 100%);
+      padding: var(--space-3xl) 0 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-bottom: var(--space-2xl);
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--color-ocean);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-md);
+    }
+
+    .hero h1 .highlight {
+      color: var(--color-ocean);
+      position: relative;
+    }
+
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--color-seafoam);
+      opacity: 0.5;
+      border-radius: 3px;
+      z-index: -1;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--color-driftwood-dark);
+      margin: 0 auto var(--space-lg);
+      line-height: 1.85;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ========================================
+       Buttons
+       ======================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--color-ocean);
+      color: var(--color-white);
+      border-color: var(--color-ocean);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-ocean-dark);
+      border-color: var(--color-ocean-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(62, 107, 137, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-ocean);
+      border-color: var(--color-ocean);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-ocean);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: var(--color-white);
+      color: var(--color-ocean);
+      border-color: var(--color-white);
+    }
+
+    .btn-light:hover {
+      background: var(--color-sand);
+      border-color: var(--color-sand);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-arrow::after {
+      content: '\2192';
+      transition: transform 0.3s ease;
+    }
+
+    .btn-arrow:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* ========================================
+       Services Section — Ocean Band
+       ======================================== */
+    .services {
+      background: var(--color-ocean);
+      color: var(--color-white);
+      position: relative;
+    }
+
+    .services .section-header h2 {
+      color: var(--color-white);
+    }
+
+    .services .section-header p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-header h2 {
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      transition: all 0.35s ease;
+    }
+
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      background: rgba(168, 213, 208, 0.25);
+      color: var(--color-seafoam-light);
+    }
+
+    .service-card h3 {
+      color: var(--color-white);
+      margin-bottom: var(--space-xs);
+    }
+
+    .service-card p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-link {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--color-seafoam-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.3s ease;
+    }
+
+    .service-link:hover {
+      gap: 0.8rem;
+    }
+
+    /* ========================================
+       Blog Section — Seafoam Band
+       ======================================== */
+    .blog-section {
+      background: var(--color-seafoam);
+      position: relative;
+    }
+
+    .blog-section .section-header h2 {
+      color: var(--color-ocean-deep);
+    }
+
+    .blog-section .section-header p {
+      color: var(--color-ocean-dark);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .blog-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.35s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lifted);
+    }
+
+    .blog-card-visual {
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card:nth-child(1) .blog-card-visual {
+      background: linear-gradient(180deg, var(--color-ocean-light) 0%, var(--color-seafoam-dark) 100%);
+    }
+
+    .blog-card:nth-child(2) .blog-card-visual {
+      background: linear-gradient(180deg, var(--color-driftwood) 0%, var(--color-sand-dark) 100%);
+    }
+
+    .blog-card:nth-child(3) .blog-card-visual {
+      background: linear-gradient(180deg, var(--color-seafoam-dark) 0%, var(--color-ocean) 100%);
+    }
+
+    /* Mini wave at bottom of card visual */
+    .blog-card-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 24px;
+      background: var(--color-white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .blog-card-content {
+      padding: var(--space-md);
+    }
+
+    .blog-card-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-ocean);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .blog-card h3 {
+      margin-bottom: var(--space-xs);
+      transition: color 0.25s ease;
+    }
+
+    .blog-card:hover h3 {
+      color: var(--color-ocean);
+    }
+
+    .blog-card p {
+      color: var(--color-driftwood-dark);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .blog-card a {
+      display: block;
+    }
+
+    /* ========================================
+       Contact CTA Section
+       ======================================== */
+    .contact-section {
+      background: var(--color-sand);
+      padding: var(--space-2xl) 0;
+    }
+
+    .contact-card {
+      background: var(--color-ocean-deep);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Internal wave texture */
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: var(--color-ocean-dark);
+      clip-path: polygon(
+        0% 60%,
+        5% 55%,
+        10% 52%,
+        15% 55%,
+        20% 60%,
+        25% 62%,
+        30% 58%,
+        35% 52%,
+        40% 48%,
+        45% 50%,
+        50% 55%,
+        55% 60%,
+        60% 58%,
+        65% 52%,
+        70% 48%,
+        75% 52%,
+        80% 58%,
+        85% 62%,
+        90% 58%,
+        95% 52%,
+        100% 50%,
+        100% 100%,
+        0% 100%
+      );
+      opacity: 0.4;
+    }
+
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: var(--color-ocean);
+      clip-path: polygon(
+        0% 70%,
+        8% 65%,
+        16% 60%,
+        24% 65%,
+        32% 72%,
+        40% 68%,
+        48% 60%,
+        56% 58%,
+        64% 65%,
+        72% 70%,
+        80% 65%,
+        88% 58%,
+        96% 62%,
+        100% 65%,
+        100% 100%,
+        0% 100%
+      );
+      opacity: 0.3;
+    }
+
+    .contact-card h2 {
+      color: var(--color-white);
+      margin-bottom: var(--space-sm);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin: 0 auto var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card .btn-light {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      background: var(--color-ocean-deep);
+      color: rgba(250, 246, 239, 0.65);
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-brand .site-name {
+      color: var(--color-white);
+      margin-bottom: var(--space-xs);
+      display: block;
+      font-size: 1.25rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .footer-links h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-seafoam);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links a {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 300;
+      padding: 0.2rem 0;
+      transition: color 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-seafoam-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(250, 246, 239, 0.1);
+      padding-top: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: 0.82rem;
+      font-weight: 300;
+    }
+
+    .footer-credentials {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.82rem;
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 960px) {
+      .services-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .contact-card {
+        padding: var(--space-xl) var(--space-md);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(250, 246, 239, 0.98);
+        backdrop-filter: blur(12px);
+        padding: var(--space-md);
+        gap: var(--space-xs);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding-top: var(--space-xl);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="site-name">Carla <span>Puscas</span></a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ============ Main Content ============ -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-label">Clinical &amp; Educational Psychologist</span>
+          <h1>Still waters run <span class="highlight">deep</span></h1>
+          <p class="hero-description">
+            I am Carla Puscas. As a clinical psychologist, educational psychologist, and vocational counselor, I help people find calm in the current, strength in stillness, and a clear path forward through life's rougher waters.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn btn-primary btn-arrow">Get in Touch</a>
+            <a href="#blog" class="btn btn-secondary">Read the Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wave divider: sand to ocean -->
+      <div class="wave-divider wave-top-sand" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C120,80 240,100 360,80 C480,60 600,20 720,30 C840,40 960,90 1080,85 C1200,80 1320,50 1440,60 L1440,120 L0,120 Z" fill="#3E6B89"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Services Section — Ocean Band -->
+    <section class="services section-padding" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="services-heading">How I Can Help</h2>
+          <p>Three areas of expertise united by one goal: helping you navigate toward well-being.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Clinical Psychology</h3>
+            <p>A safe harbor for exploring anxiety, depression, trauma, and emotional challenges. I use evidence-based approaches tailored to your unique situation and pace.</p>
+            <a href="#" class="service-link">Learn more <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Educational Psychology</h3>
+            <p>Guiding young learners and their families through academic challenges. I help identify strengths, address learning difficulties, and create strategies for success.</p>
+            <a href="#" class="service-link">Learn more <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3>Vocational Counseling</h3>
+            <p>Finding your professional direction in a complex world. Through deep exploration of your values and abilities, we chart a career course that truly fits.</p>
+            <a href="#" class="service-link">Learn more <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave divider: ocean to seafoam -->
+    <div class="wave-divider wave-bottom-ocean" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C180,20 360,0 540,20 C720,40 900,100 1080,90 C1260,80 1380,40 1440,30 L1440,120 L0,120 Z" fill="#A8D5D0"/>
+      </svg>
+    </div>
+
+    <!-- Blog Section — Seafoam Band -->
+    <section class="blog-section section-padding" id="blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="blog-heading">From the Shore</h2>
+          <p>Monthly reflections on psychology, personal growth, and finding your bearings.</p>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <a href="#">
+              <div class="blog-card-visual" role="img" aria-label="Ocean blue to seafoam gradient"></div>
+              <div class="blog-card-content">
+                <span class="blog-card-date">March 2026</span>
+                <h3>The Quiet Power of Slowing Down</h3>
+                <p>Like the tide, our energy has a rhythm. Learning to honor our natural ebb and flow is not weakness -- it is wisdom.</p>
+              </div>
+            </a>
+          </article>
+          <article class="blog-card">
+            <a href="#">
+              <div class="blog-card-visual" role="img" aria-label="Driftwood warm tones gradient"></div>
+              <div class="blog-card-content">
+                <span class="blog-card-date">February 2026</span>
+                <h3>Navigating Career Transitions After 30</h3>
+                <p>Changing course is not losing your way. Sometimes the most rewarding journeys begin when we let go of the original map.</p>
+              </div>
+            </a>
+          </article>
+          <article class="blog-card">
+            <a href="#">
+              <div class="blog-card-visual" role="img" aria-label="Seafoam to deep ocean gradient"></div>
+              <div class="blog-card-content">
+                <span class="blog-card-date">January 2026</span>
+                <h3>Supporting Your Child Through Academic Pressure</h3>
+                <p>How to be the steady anchor your child needs when school feels overwhelming.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave divider: seafoam to sand -->
+    <div class="wave-divider wave-bottom-sand" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,50 C200,90 400,100 600,70 C800,40 1000,10 1200,40 C1320,55 1400,70 1440,65 L1440,120 L0,120 Z" fill="#FAF6EF"/>
+      </svg>
+    </div>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-card">
+          <h2 id="contact-heading">Ready to Find Your Calm?</h2>
+          <p>Whether you are seeking clarity, healing, or direction, the journey begins with a single conversation. Reach out for a free initial consultation.</p>
+          <a href="mailto:hello@carlapuscas.com" class="btn btn-light btn-arrow">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="site-name">Carla <span>Puscas</span></span>
+          <p>Clinical psychologist, educational psychologist, and vocational counselor. Helping you find calm waters and clear direction.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="#">Clinical Psychology</a>
+          <a href="#">Educational Psychology</a>
+          <a href="#">Vocational Counseling</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Carla Puscas. All rights reserved.</span>
+        <span class="footer-credentials">Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor</span>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ Mobile Menu Script ============ -->
+  <script>
+    (function() {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('nav-links');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function() {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('active');
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical & Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       Design Direction: Soft Aurora + Warm Earth
+       Base: 09 (aurora gradients, glass cards)
+       + 03 (earth-tone colours, organic icons, asymmetric blog)
+       + 08 (ornamental hero divider, geometric accents)
+       + 16 (SVG wave section dividers)
+       + 20 (playful multi-colour service accents, pill buttons)
+       ======================================== */
+
+    :root {
+      /* Warm earth + mauve palette (03 earth + 09 mauve) */
+      --color-cream: #F0EBF0;
+      --color-warm-white: #FBF8FC;
+      --color-sage: #7D8B6A;
+      --color-sage-light: rgba(125, 139, 106, 0.12);
+      --color-clay: #B07A9A;
+      --color-clay-light: rgba(176, 122, 154, 0.12);
+      --color-brown: #352A3A;
+      --color-brown-muted: #6B5E72;
+
+      /* Playful accent trio (mauve-shifted) */
+      --color-teal: #5A9E8F;
+      --color-teal-light: rgba(90, 158, 143, 0.12);
+      --color-coral: #C48BA0;
+      --color-coral-light: rgba(196, 139, 160, 0.12);
+      --color-lavender: #8B6DAE;
+      --color-lavender-light: rgba(139, 109, 174, 0.15);
+
+      /* Aurora gradient tones (09 mauve palette) */
+      --aurora-1: rgba(232, 224, 240, 0.35);
+      --aurora-2: rgba(245, 225, 230, 0.28);
+      --aurora-3: rgba(216, 240, 239, 0.22);
+      --aurora-4: rgba(139, 109, 174, 0.12);
+
+      /* Wave divider colour */
+      --color-wave: #E8E0F0;
+
+      /* Glass */
+      --glass-bg: rgba(251, 248, 252, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.65);
+
+      /* Typography */
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+
+      /* Radii */
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-pill: 100px;
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-brown);
+      background: var(--color-warm-white);
+      overflow-x: hidden;
+    }
+
+    /* ---- Skip link ---- */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-brown);
+      color: var(--color-cream);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: var(--space-sm); }
+
+    /* ---- Focus ---- */
+    :focus-visible {
+      outline: 3px solid var(--color-clay);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ========================================
+       Aurora Background (from 09, earth-toned)
+       ======================================== */
+    .aurora-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 20%, var(--aurora-1) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 85% 15%, var(--aurora-2) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 70% at 50% 80%, var(--aurora-3) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 30% 55%, var(--aurora-4) 0%, transparent 50%);
+      background-color: var(--color-warm-white);
+      animation: aurora-shift 70s ease-in-out infinite alternate;
+    }
+
+    @keyframes aurora-shift {
+      0% {
+        background:
+          radial-gradient(ellipse 80% 60% at 10% 20%, var(--aurora-1) 0%, transparent 60%),
+          radial-gradient(ellipse 70% 50% at 85% 15%, var(--aurora-2) 0%, transparent 55%),
+          radial-gradient(ellipse 60% 70% at 50% 80%, var(--aurora-3) 0%, transparent 55%),
+          radial-gradient(ellipse 50% 40% at 30% 55%, var(--aurora-4) 0%, transparent 50%);
+        background-color: var(--color-warm-white);
+      }
+      50% {
+        background:
+          radial-gradient(ellipse 70% 70% at 60% 30%, var(--aurora-3) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 50% at 15% 70%, var(--aurora-1) 0%, transparent 55%),
+          radial-gradient(ellipse 80% 50% at 80% 60%, var(--aurora-4) 0%, transparent 55%),
+          radial-gradient(ellipse 45% 55% at 50% 20%, var(--aurora-2) 0%, transparent 50%);
+        background-color: var(--color-warm-white);
+      }
+      100% {
+        background:
+          radial-gradient(ellipse 75% 55% at 50% 40%, var(--aurora-2) 0%, transparent 60%),
+          radial-gradient(ellipse 65% 65% at 15% 60%, var(--aurora-4) 0%, transparent 55%),
+          radial-gradient(ellipse 55% 75% at 85% 30%, var(--aurora-1) 0%, transparent 55%),
+          radial-gradient(ellipse 50% 50% at 40% 80%, var(--aurora-3) 0%, transparent 50%);
+        background-color: var(--color-warm-white);
+      }
+    }
+
+    /* ---- Glass card ---- */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+    }
+
+    /* ---- Container ---- */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ========================================
+       Header
+       ======================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: var(--space-sm) 0;
+      background: rgba(251, 248, 252, 0.7);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+    }
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--color-brown);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--space-xs);
+    }
+    .main-nav a {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: var(--color-brown-muted);
+      text-decoration: none;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .main-nav a:hover {
+      background: var(--color-cream);
+      color: var(--color-brown);
+    }
+    .main-nav a[aria-current="page"] {
+      background: var(--color-brown);
+      color: var(--color-warm-white);
+    }
+    .mobile-toggle {
+      display: none;
+      background: var(--color-cream);
+      border: none;
+      cursor: pointer;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-brown);
+    }
+
+    /* ========================================
+       Hero
+       ======================================== */
+    .hero {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Ornament line with diamond caps (from 08) */
+    .hero-ornament {
+      display: inline-block;
+      width: 80px;
+      height: 2px;
+      background: var(--color-clay);
+      margin-bottom: var(--space-lg);
+      position: relative;
+    }
+    .hero-ornament::before,
+    .hero-ornament::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--color-clay);
+      transform: rotate(45deg);
+      background: var(--color-warm-white);
+    }
+    .hero-ornament::before { left: -16px; }
+    .hero-ornament::after { right: -16px; }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--color-brown);
+      margin-bottom: var(--space-md);
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--color-sage), var(--color-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.1875rem;
+      color: var(--color-brown-muted);
+      max-width: 560px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Pill buttons (from 20) */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-warm-white);
+      background: var(--color-clay);
+      padding: 0.9rem 2.25rem;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(193, 126, 90, 0.3);
+      background: #a86840;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-brown);
+      background: transparent;
+      padding: 0.9rem 2.25rem;
+      border-radius: var(--radius-pill);
+      border: 2px solid rgba(62, 45, 33, 0.2);
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-secondary:hover {
+      border-color: var(--color-brown);
+      transform: translateY(-2px);
+    }
+
+    /* ========================================
+       Wave Dividers (from 16)
+       ======================================== */
+    .wave-divider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-top: -1px;
+    }
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ========================================
+       Open Book / Fan Divider (from 08)
+       ======================================== */
+    .deco-divider {
+      width: 100%;
+      height: 100px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .deco-divider::before {
+      content: '';
+      width: 200px;
+      height: 100px;
+      border-radius: 200px 200px 0 0;
+      background: conic-gradient(
+        from 180deg at 50% 100%,
+        var(--color-clay) 0deg,
+        transparent 8deg,
+        transparent 20deg,
+        var(--color-clay) 20deg,
+        var(--color-clay) 22deg,
+        transparent 22deg,
+        transparent 38deg,
+        var(--color-clay) 38deg,
+        var(--color-clay) 40deg,
+        transparent 40deg,
+        transparent 56deg,
+        var(--color-clay) 56deg,
+        var(--color-clay) 58deg,
+        transparent 58deg,
+        transparent 74deg,
+        var(--color-clay) 74deg,
+        var(--color-clay) 76deg,
+        transparent 76deg,
+        transparent 92deg,
+        var(--color-clay) 92deg,
+        var(--color-clay) 94deg,
+        transparent 94deg,
+        transparent 104deg,
+        var(--color-clay) 104deg,
+        var(--color-clay) 106deg,
+        transparent 106deg,
+        transparent 122deg,
+        var(--color-clay) 122deg,
+        var(--color-clay) 124deg,
+        transparent 124deg,
+        transparent 140deg,
+        var(--color-clay) 140deg,
+        var(--color-clay) 142deg,
+        transparent 142deg,
+        transparent 158deg,
+        var(--color-clay) 158deg,
+        var(--color-clay) 160deg,
+        transparent 160deg,
+        transparent 176deg,
+        var(--color-clay) 176deg,
+        var(--color-clay) 180deg
+      );
+      opacity: 0.3;
+    }
+    .deco-divider::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: var(--color-clay);
+      opacity: 0.5;
+    }
+
+    /* ========================================
+       Section common
+       ======================================== */
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+    .section-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-sage);
+      margin-bottom: var(--space-xs);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--color-brown);
+      margin-bottom: var(--space-sm);
+    }
+    .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--color-brown-muted);
+      max-width: 480px;
+      margin-bottom: var(--space-xl);
+    }
+
+    /* ========================================
+       Services — Playful icon shapes (from 20)
+       with warm colours (from 03)
+       ======================================== */
+    .services-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    .services-header .section-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .service-card {
+      padding: var(--space-lg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(62, 45, 33, 0.08);
+    }
+
+    /* Coloured geometric shapes per service (from 20) */
+    .service-shape {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+    }
+    .shape-circle {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .shape-rounded-sq {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .shape-pill {
+      width: 3rem;
+      height: 4.5rem;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Icon colours mapped to earth-toned accents */
+    .service-card:nth-child(1) .shape-circle {
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+    }
+    .service-card:nth-child(1):hover .shape-circle {
+      background: var(--color-teal);
+      color: var(--color-warm-white);
+    }
+    .service-card:nth-child(2) .shape-rounded-sq {
+      background: var(--color-coral-light);
+      color: var(--color-coral);
+    }
+    .service-card:nth-child(2):hover .shape-rounded-sq {
+      background: var(--color-coral);
+      color: var(--color-warm-white);
+    }
+    .service-card:nth-child(3) .shape-pill {
+      background: var(--color-lavender-light);
+      color: var(--color-lavender);
+    }
+    .service-card:nth-child(3):hover .shape-pill {
+      background: var(--color-lavender);
+      color: var(--color-warm-white);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+      color: var(--color-brown);
+    }
+    .service-card p {
+      color: var(--color-brown-muted);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: gap 0.2s ease;
+    }
+    .service-link:hover { gap: 0.8rem; }
+    .service-card:nth-child(1) .service-link { color: var(--color-teal); }
+    .service-card:nth-child(2) .service-link { color: var(--color-coral); }
+    .service-card:nth-child(3) .service-link { color: var(--color-lavender); }
+
+    /* ========================================
+       Blog — Asymmetric grid (from 03)
+       ======================================== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-rows: auto auto;
+      gap: var(--space-md);
+    }
+    .blog-card {
+      padding: var(--space-lg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(62, 45, 33, 0.08);
+    }
+    .blog-card:first-child {
+      grid-row: 1 / 3;
+    }
+    .blog-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-sm);
+      width: fit-content;
+    }
+    .blog-card:nth-child(1) .blog-tag {
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+    }
+    .blog-card:nth-child(2) .blog-tag {
+      background: var(--color-coral-light);
+      color: var(--color-coral);
+    }
+    .blog-card:nth-child(3) .blog-tag {
+      background: var(--color-lavender-light);
+      color: var(--color-lavender);
+    }
+    .blog-date {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      color: var(--color-brown-muted);
+      margin-bottom: var(--space-xs);
+    }
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.35;
+      margin-bottom: var(--space-sm);
+      color: var(--color-brown);
+    }
+    .blog-card:first-child h3 {
+      font-size: 1.375rem;
+    }
+    .blog-card p {
+      color: var(--color-brown-muted);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+    .blog-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--color-sage);
+      margin-top: var(--space-sm);
+      transition: gap 0.2s ease;
+    }
+    .blog-card:hover .blog-read { gap: 0.6rem; }
+
+    /* ========================================
+       Contact CTA
+       ======================================== */
+    .contact-cta {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      margin: var(--space-xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative shapes behind CTA (from 20) */
+    .contact-decor {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.6;
+    }
+    .contact-decor-1 {
+      width: 5rem;
+      height: 5rem;
+      background: var(--color-teal-light);
+      border-radius: 50%;
+      top: -1rem;
+      left: -1.5rem;
+    }
+    .contact-decor-2 {
+      width: 3rem;
+      height: 3rem;
+      background: var(--color-coral-light);
+      border-radius: var(--radius-md);
+      bottom: -0.5rem;
+      right: 2rem;
+      transform: rotate(20deg);
+    }
+    .contact-decor-3 {
+      width: 2rem;
+      height: 4.5rem;
+      background: var(--color-lavender-light);
+      border-radius: var(--radius-pill);
+      top: 1.5rem;
+      right: -0.5rem;
+      transform: rotate(-12deg);
+    }
+    .contact-content {
+      position: relative;
+      z-index: 1;
+    }
+    .contact-cta h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
+      color: var(--color-brown);
+    }
+    .contact-cta p {
+      color: var(--color-brown-muted);
+      font-size: 1.0625rem;
+      max-width: 480px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      padding: var(--space-xl) 0 var(--space-lg);
+      border-top: 1px solid rgba(62, 45, 33, 0.08);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-brown);
+    }
+    .footer-credentials {
+      font-size: 0.8125rem;
+      color: var(--color-brown-muted);
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--color-brown-muted);
+      text-decoration: none;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-pill);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .footer-links a:hover {
+      background: var(--color-cream);
+      color: var(--color-brown);
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .blog-card:first-child {
+        grid-row: auto;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 640px) {
+      .main-nav { display: none; }
+      .main-nav.open {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(251, 248, 252, 0.95);
+        backdrop-filter: blur(20px);
+        padding: var(--space-md);
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+      }
+      .main-nav.open ul {
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+      .mobile-toggle { display: block; }
+      .hero { padding: var(--space-2xl) 0 var(--space-xl); }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora-bg" aria-hidden="true"></div>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ======== Header ======== -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-name">Carla Puscas</a>
+      <nav class="main-nav" id="main-menu" aria-label="Main navigation">
+        <ul>
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">Menu</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ======== Hero ======== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-ornament" aria-hidden="true"></div>
+          <h1>A safe space for <em>growth, clarity,</em> and understanding</h1>
+          <p>Clinical psychology, educational support, and vocational counseling grounded in empathy, evidence, and genuine human connection.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Get in touch &rarr;</a>
+            <a href="#blog" class="btn-secondary">Read the blog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: into services (from 16, boosted contrast) -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C180,20 360,10 540,30 C720,50 900,80 1080,65 C1200,55 1360,35 1440,45 L1440,100 L0,100 Z" fill="#E8E0F0"/>
+        <path d="M0,75 C240,55 480,45 720,60 C960,75 1200,85 1440,70 L1440,100 L0,100 Z" fill="#DDD5E8" fill-opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- ======== Services ======== -->
+    <section class="section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-header">
+          <p class="section-label">Services</p>
+          <h2 class="section-title" id="services-heading">How I can help</h2>
+          <p class="section-subtitle">Every person's journey is unique. I offer specialised support across three interconnected areas of psychology.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card glass">
+            <div class="service-shape">
+              <div class="shape-circle" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+            </div>
+            <h3>Clinical Psychology</h3>
+            <p>Individual therapy and psychological assessment for adults navigating anxiety, depression, life transitions, and complex emotional challenges.</p>
+            <a href="#" class="service-link">Learn more <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="service-card glass">
+            <div class="service-shape">
+              <div class="shape-rounded-sq" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+            </div>
+            <h3>Educational Psychology</h3>
+            <p>Assessment and support for learning differences, giftedness, and developmental concerns in children, adolescents, and young adults.</p>
+            <a href="#" class="service-link">Learn more <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="service-card glass">
+            <div class="service-shape">
+              <div class="shape-pill" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+            </div>
+            <h3>Vocational Counseling</h3>
+            <p>Guidance for career exploration, professional identity, and meaningful work alignment through structured assessment and reflective dialogue.</p>
+            <a href="#" class="service-link">Learn more <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open book fan divider (from 08) -->
+    <div class="deco-divider" aria-hidden="true"></div>
+
+    <!-- Wave: after fan divider (from 16, boosted contrast) -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C240,60 480,70 720,50 C960,30 1200,10 1440,35 L1440,80 L0,80 Z" fill="#E8E0F0"/>
+        <path d="M0,55 C360,35 720,25 1080,45 C1260,55 1380,60 1440,55 L1440,80 L0,80 Z" fill="#DDD5E8" fill-opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- ======== Blog — Asymmetric (from 03) ======== -->
+    <section class="section" id="blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <p class="section-label">From the blog</p>
+        <h2 class="section-title" id="blog-heading">Recent reflections</h2>
+        <p class="section-subtitle">Monthly writings on psychology, personal growth, and navigating life's complex terrain.</p>
+        <div class="blog-grid">
+          <a href="#" class="blog-card glass">
+            <span class="blog-tag">Resilience</span>
+            <p class="blog-date">March 2026</p>
+            <h3>The quiet architecture of resilience</h3>
+            <p>Resilience is not an inherent trait but a practice, built through small intentional choices in moments of difficulty. This month we explore the daily habits and mindset shifts that form the foundation of genuine psychological resilience.</p>
+            <span class="blog-read">Read article <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a href="#" class="blog-card glass">
+            <span class="blog-tag">Education</span>
+            <p class="blog-date">February 2026</p>
+            <h3>When children struggle beyond the obvious</h3>
+            <p>Academic difficulties often mask deeper emotional or developmental needs. Understanding requires seeing the whole child.</p>
+            <span class="blog-read">Read article <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a href="#" class="blog-card glass">
+            <span class="blog-tag">Career</span>
+            <p class="blog-date">January 2026</p>
+            <h3>Career change at 40: permission to reinvent</h3>
+            <p>Mid-career transitions are acts of courage. Navigate the uncertainty with clarity and self-compassion.</p>
+            <span class="blog-read">Read article <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave before contact (from 16, boosted contrast) -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,50 C360,15 720,5 1080,40 C1260,55 1380,60 1440,50 L1440,80 L0,80 Z" fill="#E8E0F0"/>
+        <path d="M0,65 C180,50 480,40 720,55 C960,70 1200,75 1440,60 L1440,80 L0,80 Z" fill="#DDD5E8" fill-opacity="0.45"/>
+      </svg>
+    </div>
+
+    <!-- ======== Contact CTA ======== -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-cta glass">
+          <div class="contact-decor contact-decor-1" aria-hidden="true"></div>
+          <div class="contact-decor contact-decor-2" aria-hidden="true"></div>
+          <div class="contact-decor contact-decor-3" aria-hidden="true"></div>
+          <div class="contact-content">
+            <h2 id="contact-heading">Ready to take the first step?</h2>
+            <p>Whether you have questions or are ready to schedule an initial consultation, I am here to listen. No jargon, no pressure — just a genuine conversation.</p>
+            <a href="mailto:hello@carlapuscas.com" class="btn-primary">Let's talk &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======== Footer ======== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-brand">Carla Puscas</p>
+        <p class="footer-credentials">Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </nav>
+      </div>
+      <p style="text-align:center; font-size:0.8125rem; color:var(--color-brown-muted); margin-top:var(--space-md);">&copy; 2026 Carla Puscas. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector('.mobile-toggle');
+      const nav = document.querySelector('.main-nav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.textContent = isOpen ? 'Close' : 'Menu';
+      });
+    })();
+  </script>
+</body>
+</html>

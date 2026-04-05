@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,500&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #1E1A15;
+      --color-bg-lighter: #2A2520;
+      --color-bg-card: #262119;
+      --color-parchment: #D4C9A8;
+      --color-parchment-muted: #A89E82;
+      --color-oxblood: #6B2D3E;
+      --color-oxblood-light: #8A3D52;
+      --color-brass: #9E8A5C;
+      --color-brass-light: #BDA76E;
+      --color-cream: #EDE5D0;
+      --color-rule: rgba(158, 138, 92, 0.25);
+      --font-display: 'Bodoni Moda', serif;
+      --font-body: 'Literata', serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--color-parchment);
+      background: var(--color-bg);
+    }
+
+    /* ---- Skip link ---- */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-brass);
+      color: var(--color-bg);
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-body);
+      font-weight: 500;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: var(--space-sm);
+    }
+
+    /* ---- Focus ---- */
+    :focus-visible {
+      outline: 2px solid var(--color-brass);
+      outline-offset: 3px;
+    }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---- Thin ornamental rule ---- */
+    .ornamental-rule {
+      border: none;
+      height: 1px;
+      background: var(--color-rule);
+      margin: var(--space-lg) 0;
+    }
+    .ornamental-rule--dots {
+      background: none;
+      height: auto;
+      text-align: center;
+      line-height: 1;
+      color: var(--color-brass);
+      font-size: 1.25rem;
+      letter-spacing: 0.5em;
+    }
+    .ornamental-rule--dots::before {
+      content: '\2022 \2022 \2022 \2022 \2022';
+    }
+
+    /* ---- Container ---- */
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+    .container--narrow {
+      max-width: 720px;
+    }
+
+    /* ---- Header ---- */
+    .site-header {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-cream);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--space-lg);
+    }
+    .main-nav a {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.9375rem;
+      color: var(--color-parchment-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+      padding: var(--space-xs) 0;
+      position: relative;
+    }
+    .main-nav a:hover {
+      color: var(--color-brass-light);
+    }
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-brass);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .main-nav a:hover::after {
+      transform: scaleX(1);
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-rule);
+      cursor: pointer;
+      padding: 6px 10px;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--color-parchment);
+      margin: 4px 0;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      padding: var(--space-3xl) 0 var(--space-2xl);
+      text-align: center;
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .hero-label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--color-brass);
+      margin-bottom: var(--space-md);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--color-cream);
+      margin-bottom: var(--space-md);
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--color-brass-light);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--color-parchment-muted);
+      max-width: 520px;
+      margin: 0 auto var(--space-lg);
+      text-align: justify;
+      text-align-last: center;
+    }
+    .btn-brass {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-bg);
+      background: var(--color-brass);
+      padding: 0.85rem 2.5rem;
+      text-decoration: none;
+      border: 1px solid var(--color-brass);
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .btn-brass:hover {
+      background: transparent;
+      color: var(--color-brass-light);
+    }
+    .btn-outline {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-brass);
+      background: transparent;
+      padding: 0.85rem 2.5rem;
+      text-decoration: none;
+      border: 1px solid var(--color-rule);
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+    .btn-outline:hover {
+      border-color: var(--color-brass);
+      color: var(--color-cream);
+    }
+
+    /* ---- Section ---- */
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+    .section-label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--color-brass);
+      margin-bottom: var(--space-xs);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      line-height: 1.15;
+      color: var(--color-cream);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ---- Services ---- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--color-rule);
+      border: 1px solid var(--color-rule);
+    }
+    .service-card {
+      padding: var(--space-lg);
+      background: var(--color-bg);
+    }
+    .service-number {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--color-brass);
+      opacity: 0.4;
+      margin-bottom: var(--space-sm);
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.375rem;
+      color: var(--color-cream);
+      margin-bottom: var(--space-sm);
+      line-height: 1.25;
+    }
+    .service-card p {
+      color: var(--color-parchment-muted);
+      font-size: 0.9375rem;
+      text-align: justify;
+      line-height: 1.75;
+    }
+
+    /* ---- Blog ---- */
+    .blog-list {
+      list-style: none;
+    }
+    .blog-item {
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid var(--color-rule);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .blog-item:first-child {
+      border-top: 1px solid var(--color-rule);
+    }
+    .blog-date {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--color-brass);
+      padding-top: 0.3em;
+    }
+    .blog-content h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-cream);
+      margin-bottom: var(--space-xs);
+      line-height: 1.3;
+    }
+    .blog-content h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .blog-content h3 a:hover {
+      color: var(--color-brass-light);
+    }
+    .blog-content p {
+      color: var(--color-parchment-muted);
+      font-size: 0.9375rem;
+      text-align: justify;
+    }
+
+    /* ---- Library Card CTA ---- */
+    .library-card-section {
+      padding: var(--space-2xl) 0;
+    }
+    .library-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--color-bg-card);
+      border: 2px solid var(--color-brass);
+      padding: var(--space-xl) var(--space-lg);
+      position: relative;
+    }
+    .library-card::before {
+      content: 'CONSULTATION CARD';
+      position: absolute;
+      top: -0.7em;
+      left: var(--space-md);
+      background: var(--color-bg-card);
+      padding: 0 var(--space-sm);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-brass);
+    }
+    .library-card-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--color-cream);
+      margin-bottom: var(--space-sm);
+      text-align: center;
+    }
+    .library-card-subtitle {
+      text-align: center;
+      color: var(--color-parchment-muted);
+      font-size: 0.9375rem;
+      margin-bottom: var(--space-lg);
+    }
+    .card-fields {
+      margin-bottom: var(--space-lg);
+    }
+    .card-field {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .card-field-label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-brass);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+    .card-field-line {
+      flex: 1;
+      border-bottom: 2px dotted var(--color-rule);
+      height: 1.5em;
+    }
+    .library-card .btn-brass {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+    .library-card-stamp {
+      position: absolute;
+      bottom: var(--space-md);
+      right: var(--space-md);
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--color-oxblood);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-oxblood-light);
+      transform: rotate(-12deg);
+      opacity: 0.6;
+    }
+    .library-card-stamp-inner {
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* ---- Footer ---- */
+    .site-footer {
+      padding: var(--space-lg) 0;
+      border-top: 1px solid var(--color-rule);
+      text-align: center;
+    }
+    .footer-credentials {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-style: italic;
+      font-size: 0.9375rem;
+      color: var(--color-parchment-muted);
+      margin-bottom: var(--space-xs);
+    }
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-parchment-muted);
+      opacity: 0.7;
+    }
+    .footer-copy a {
+      color: var(--color-brass);
+      text-decoration: none;
+    }
+    .footer-copy a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-rule);
+        padding: var(--space-md);
+        gap: var(--space-sm);
+      }
+      .main-nav ul.open {
+        display: flex;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .blog-item {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+      .library-card {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .library-card-stamp {
+        display: none;
+      }
+      .hero {
+        padding: var(--space-2xl) 0 var(--space-xl);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-name">Carla Puscas</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul id="nav-menu">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="mobile-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container container--narrow">
+        <p class="hero-label">Clinical &amp; Educational Psychologist</p>
+        <h1>The examined life<br><em>is worth living</em></h1>
+        <p>Psychology rooted in scholarly rigor and human warmth. Clinical assessment, educational support, and vocational guidance for those seeking clarity and deeper self-understanding.</p>
+        <a href="#contact" class="btn-brass">Begin your inquiry</a>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" aria-labelledby="services-heading">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-lg);">
+          <p class="section-label">Areas of Practice</p>
+          <h2 class="section-title" id="services-heading">Three Pillars of Support</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-number" aria-hidden="true">I</div>
+            <h3>Clinical Psychology</h3>
+            <p>Therapeutic work with adults facing anxiety, mood disorders, trauma, grief, and the persistent questions that surface during life's most demanding chapters. Grounded in evidence-based practice with an emphasis on the therapeutic relationship.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-number" aria-hidden="true">II</div>
+            <h3>Educational Psychology</h3>
+            <p>Comprehensive psychoeducational assessment for learners of all ages. Understanding cognitive profiles, learning differences, giftedness, and the interplay between emotional wellbeing and academic achievement.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-number" aria-hidden="true">III</div>
+            <h3>Vocational Counseling</h3>
+            <p>Structured guidance for those at professional crossroads. Through validated assessment tools and reflective conversation, we explore your aptitudes, values, and the work that would bring genuine fulfillment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><hr class="ornamental-rule--dots" aria-hidden="true"></div>
+
+    <!-- Blog -->
+    <section class="section" aria-labelledby="blog-heading">
+      <div class="container">
+        <p class="section-label">The Reading Room</p>
+        <h2 class="section-title" id="blog-heading">Recent Writings</h2>
+        <ul class="blog-list">
+          <li class="blog-item">
+            <span class="blog-date">Mar 2026</span>
+            <div class="blog-content">
+              <h3><a href="#">On the virtue of intellectual humility in clinical practice</a></h3>
+              <p>What centuries of philosophical inquiry can teach modern practitioners about sitting with uncertainty and the courage to say "I don't know."</p>
+            </div>
+          </li>
+          <li class="blog-item">
+            <span class="blog-date">Feb 2026</span>
+            <div class="blog-content">
+              <h3><a href="#">The mythology of the "gifted child" and what assessment really reveals</a></h3>
+              <p>Moving beyond labels toward a nuanced understanding of cognitive diversity, twice-exceptionality, and the emotional life of high-ability learners.</p>
+            </div>
+          </li>
+          <li class="blog-item">
+            <span class="blog-date">Jan 2026</span>
+            <div class="blog-content">
+              <h3><a href="#">Vocation as calling: rediscovering meaning in professional life</a></h3>
+              <p>An exploration of the historical roots of "vocation" and how reconnecting with purpose transforms our relationship to work.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact CTA: Library Card -->
+    <section class="library-card-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="library-card">
+          <h2 class="library-card-title" id="contact-heading">Request a Consultation</h2>
+          <p class="library-card-subtitle">Your inquiry begins here. Take the first step toward understanding.</p>
+          <div class="card-fields" aria-hidden="true">
+            <div class="card-field">
+              <span class="card-field-label">Name</span>
+              <span class="card-field-line"></span>
+            </div>
+            <div class="card-field">
+              <span class="card-field-label">Date</span>
+              <span class="card-field-line"></span>
+            </div>
+            <div class="card-field">
+              <span class="card-field-label">Subject</span>
+              <span class="card-field-line"></span>
+            </div>
+          </div>
+          <a href="mailto:hello@carlapuscas.com" class="btn-brass">Submit Your Request</a>
+          <div class="library-card-stamp" aria-hidden="true">
+            <div class="library-card-stamp-inner">Carla<br>Puscas<br>Psych.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-credentials">Carla Puscas &mdash; Clinical Psychologist, Educational Psychologist, Vocational Counselor</p>
+      <p class="footer-copy">&copy; 2026 Carla Puscas. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('.mobile-toggle');
+      var menu = document.getElementById('nav-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>

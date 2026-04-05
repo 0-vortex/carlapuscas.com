@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-marble: #F5F0EB;
+      --color-slate: #2C2C34;
+      --color-gold: #B09E7D;
+      --color-stone: #8A8579;
+      --color-warm-white: #FAF7F2;
+      --color-deep-marble: #EDE7DE;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'EB Garamond', serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-2xl: 8rem;
+      --max-width: 1100px;
+      --transition-base: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--color-slate);
+      background-color: var(--color-marble);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--color-gold);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-slate);
+      color: var(--color-marble);
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-body);
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 0; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ================================
+       ORNAMENTAL HR
+       ================================ */
+    .ornament-hr {
+      border: none;
+      text-align: center;
+      height: 20px;
+      position: relative;
+      margin: var(--space-lg) auto;
+      max-width: 500px;
+    }
+
+    .ornament-hr::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-gold);
+    }
+
+    .ornament-hr::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 10px;
+      height: 10px;
+      background: var(--color-marble);
+      border: 2px solid var(--color-gold);
+    }
+
+    .ornament-hr--circle::after {
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ornament-hr--dark::before {
+      background: rgba(176, 158, 125, 0.4);
+    }
+
+    .ornament-hr--dark::after {
+      background: var(--color-slate);
+      border-color: var(--color-gold);
+    }
+
+    /* ================================
+       HEADER
+       ================================ */
+    .site-header {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--color-gold);
+      background: var(--color-marble);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-slate);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-stone);
+      transition: color var(--transition-base);
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus-visible {
+      color: var(--color-slate);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-gold);
+      color: var(--color-slate);
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* ================================
+       HERO with IONIC COLUMN MOTIF
+       ================================ */
+    .hero {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md);
+      background: var(--color-warm-white);
+      position: relative;
+    }
+
+    .hero-columns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* CSS-only Ionic column capital */
+    .ionic-column {
+      width: 60px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Volute top */
+    .ionic-capital {
+      width: 60px;
+      height: 28px;
+      position: relative;
+    }
+
+    .ionic-capital::before,
+    .ionic-capital::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--color-gold);
+      border-radius: 50%;
+    }
+
+    .ionic-capital::before { left: 0; }
+    .ionic-capital::after { right: 0; }
+
+    .ionic-capital-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(
+        to bottom,
+        var(--color-gold) 0%,
+        var(--color-gold) 30%,
+        transparent 30%,
+        transparent 50%,
+        var(--color-gold) 50%,
+        var(--color-gold) 70%,
+        transparent 70%
+      );
+    }
+
+    /* Shaft */
+    .ionic-shaft {
+      width: 36px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--color-gold) 0px,
+        var(--color-gold) 1px,
+        transparent 1px,
+        transparent 3px,
+        rgba(176, 158, 125, 0.3) 3px,
+        rgba(176, 158, 125, 0.3) 4px,
+        transparent 4px,
+        transparent 5px
+      );
+      height: 180px;
+      position: relative;
+    }
+
+    .ionic-shaft::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -4px;
+      right: -4px;
+      height: 6px;
+      background: var(--color-gold);
+      border-radius: 2px 2px 0 0;
+    }
+
+    .ionic-shaft::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -6px;
+      right: -6px;
+      height: 10px;
+      background: linear-gradient(
+        to bottom,
+        var(--color-gold) 0%,
+        var(--color-gold) 40%,
+        transparent 40%,
+        transparent 60%,
+        var(--color-gold) 60%
+      );
+    }
+
+    /* Base */
+    .ionic-base {
+      width: 52px;
+      height: 16px;
+      background: var(--color-gold);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 4px 0 -1px var(--color-deep-marble), 0 6px 0 0 rgba(176, 158, 125, 0.4);
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-slate);
+      letter-spacing: 0.04em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.1875rem;
+      font-style: italic;
+      line-height: 1.9;
+      color: var(--color-stone);
+      margin-bottom: var(--space-md);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.5rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--color-slate);
+      color: var(--color-slate);
+      background: transparent;
+      transition: all var(--transition-base);
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: var(--color-slate);
+      color: var(--color-marble);
+    }
+
+    .btn--gold {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    .btn--gold:hover,
+    .btn--gold:focus-visible {
+      background: var(--color-gold);
+      color: var(--color-warm-white);
+    }
+
+    .btn--filled {
+      background: var(--color-slate);
+      color: var(--color-marble);
+    }
+
+    .btn--filled:hover,
+    .btn--filled:focus-visible {
+      background: transparent;
+      color: var(--color-slate);
+    }
+
+    /* ================================
+       SERVICES
+       ================================ */
+    .services {
+      padding: var(--space-xl) var(--space-md);
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-xs);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--color-slate);
+      margin-bottom: var(--space-lg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .service-card {
+      padding: var(--space-md) var(--space-sm);
+      text-align: center;
+      position: relative;
+    }
+
+    .service-card::before {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 0 auto var(--space-md);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--color-slate);
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card p {
+      font-size: 1.0625rem;
+      line-height: 1.9;
+      color: var(--color-stone);
+    }
+
+    .service-card-numeral {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--color-gold);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ================================
+       BLOG
+       ================================ */
+    .blog {
+      background: var(--color-slate);
+      color: var(--color-marble);
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .blog .section-label {
+      color: var(--color-gold);
+      text-align: center;
+    }
+
+    .blog .section-title {
+      color: var(--color-marble);
+      text-align: center;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .blog-card {
+      padding: var(--space-md);
+      border-top: 2px solid var(--color-gold);
+    }
+
+    .blog-card-date {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-xs);
+    }
+
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--color-marble);
+      line-height: 1.4;
+      margin-bottom: var(--space-sm);
+    }
+
+    .blog-card p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-deep-marble);
+      opacity: 0.8;
+    }
+
+    .blog-card-link {
+      display: inline-block;
+      margin-top: var(--space-sm);
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-base);
+    }
+
+    .blog-card-link:hover,
+    .blog-card-link:focus-visible {
+      border-bottom-color: var(--color-gold);
+    }
+
+    /* ================================
+       CONTACT CTA
+       ================================ */
+    .contact-cta {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md);
+      background: var(--color-warm-white);
+    }
+
+    .contact-cta .section-title {
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-cta-text {
+      font-size: 1.125rem;
+      font-style: italic;
+      line-height: 1.9;
+      color: var(--color-stone);
+      max-width: 520px;
+      margin: 0 auto var(--space-md);
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+    .site-footer {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      border-top: 1px solid var(--color-gold);
+      background: var(--color-marble);
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-slate);
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-credentials {
+      font-size: 0.9375rem;
+      font-style: italic;
+      color: var(--color-stone);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links a {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-stone);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--color-slate);
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-stone);
+      opacity: 0.7;
+    }
+
+    /* ================================
+       MARBLE TEXTURE OVERLAY
+       ================================ */
+    .marble-texture {
+      position: relative;
+    }
+
+    .marble-texture::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(176, 158, 125, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(138, 133, 121, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 80%, rgba(176, 158, 125, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* ================================
+       RESPONSIVE
+       ================================ */
+    @media (max-width: 900px) {
+      .services-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+
+      .hero-columns {
+        flex-direction: column;
+      }
+
+      .ionic-column { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-marble);
+        border-bottom: 1px solid var(--color-gold);
+        padding: var(--space-md);
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .nav-list.is-open { display: flex; }
+      .menu-toggle { display: block; }
+      .header-inner { position: relative; }
+
+      .footer-links { flex-direction: column; gap: var(--space-xs); }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-name">Carla Puscas</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list" id="main-nav">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO with Ionic columns -->
+  <section class="hero marble-texture">
+    <div class="hero-columns">
+
+      <!-- Left Ionic Column -->
+      <div class="ionic-column" aria-hidden="true">
+        <div class="ionic-capital">
+          <div class="ionic-capital-bar"></div>
+        </div>
+        <div class="ionic-shaft"></div>
+        <div class="ionic-base"></div>
+      </div>
+
+      <!-- Hero Text -->
+      <div class="hero-text">
+        <h1>The Examined Life, Guided with Care</h1>
+        <p class="hero-subtitle">Professional psychology rooted in enduring principles — clinical insight, educational clarity, and vocational purpose for those ready to understand themselves more deeply.</p>
+        <a href="#contact" class="btn btn--filled">Book a Consultation</a>
+      </div>
+
+      <!-- Right Ionic Column -->
+      <div class="ionic-column" aria-hidden="true">
+        <div class="ionic-capital">
+          <div class="ionic-capital-bar"></div>
+        </div>
+        <div class="ionic-shaft"></div>
+        <div class="ionic-base"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="ornament-hr" aria-hidden="true">
+
+  <!-- SERVICES -->
+  <section class="services" aria-labelledby="services-title">
+    <p class="section-label">Disciplines</p>
+    <h2 class="section-title" id="services-title">Three Pillars of Practice</h2>
+    <div class="services-grid">
+      <article class="service-card">
+        <p class="service-card-numeral" aria-hidden="true">I</p>
+        <h3>Clinical Psychology</h3>
+        <p>Individual psychotherapy for adults contending with anxiety, depression, burnout, and relational challenges. Grounded in evidence, attentive to the whole person.</p>
+      </article>
+      <article class="service-card">
+        <p class="service-card-numeral" aria-hidden="true">II</p>
+        <h3>Educational Psychology</h3>
+        <p>Assessment and intervention for children, adolescents, and young adults — addressing learning differences, attention, giftedness, and emotional wellbeing within educational contexts.</p>
+      </article>
+      <article class="service-card">
+        <p class="service-card-numeral" aria-hidden="true">III</p>
+        <h3>Vocational Counseling</h3>
+        <p>Structured guidance for those at professional crossroads — clarifying strengths, values, and direction so that career choices serve the life you want to build.</p>
+      </article>
+    </div>
+  </section>
+
+  <hr class="ornament-hr ornament-hr--circle" aria-hidden="true">
+
+  <!-- BLOG -->
+  <section class="blog" aria-labelledby="blog-title">
+    <p class="section-label">From the Study</p>
+    <h2 class="section-title" id="blog-title">Recent Writing</h2>
+    <hr class="ornament-hr ornament-hr--dark" aria-hidden="true" style="margin-top: 0;">
+    <div class="blog-grid">
+      <article class="blog-card">
+        <p class="blog-card-date">March 2026</p>
+        <h3>On the Difference Between Solitude and Loneliness</h3>
+        <p>Why the capacity to be alone, willingly and well, may be one of the most important psychological skills we can cultivate.</p>
+        <a href="#" class="blog-card-link">Continue Reading</a>
+      </article>
+      <article class="blog-card">
+        <p class="blog-card-date">February 2026</p>
+        <h3>When Achievement Becomes a Cage</h3>
+        <p>Examining the psychological costs of success-at-all-costs, and how to find meaning beyond performance metrics.</p>
+        <a href="#" class="blog-card-link">Continue Reading</a>
+      </article>
+      <article class="blog-card">
+        <p class="blog-card-date">January 2026</p>
+        <h3>Teaching Children to Sit with Discomfort</h3>
+        <p>A reflective essay for parents on the counter-intuitive gift of not always smoothing the way for our children.</p>
+        <a href="#" class="blog-card-link">Continue Reading</a>
+      </article>
+    </div>
+  </section>
+
+  <hr class="ornament-hr" aria-hidden="true">
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" id="contact" aria-labelledby="contact-title">
+    <p class="section-label">Reach Out</p>
+    <h2 class="section-title" id="contact-title">A Conversation Begins It All</h2>
+    <p class="contact-cta-text">Whether you seek clarity for yourself, understanding for your child, or direction for your career, I welcome you to take that first step. Every meaningful change starts with a single, honest conversation.</p>
+    <a href="mailto:hello@carlapuscas.com" class="btn">Get in Touch</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-name">Carla Puscas</p>
+  <p class="footer-credentials">Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor</p>
+  <ul class="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Carla Puscas. All rights reserved.</p>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.menu-toggle');
+    var nav = document.querySelector('#main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

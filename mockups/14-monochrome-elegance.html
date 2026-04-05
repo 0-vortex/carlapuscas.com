@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS Custom Properties
+       ======================================== */
+    :root {
+      --color-bg: #F4F2EF;
+      --color-mid: #9E9A94;
+      --color-dark: #3D3A36;
+      --color-text: #1F1D1A;
+      --color-surface: #ECEAE6;
+      --color-rule: #CBC8C2;
+      --color-rule-light: #DDDAD5;
+      --color-hover: #2A2825;
+
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Public Sans', Helvetica, sans-serif;
+
+      --space-unit: 0.5rem; /* 8px base */
+      --space-1: var(--space-unit);                  /* 8px */
+      --space-2: calc(var(--space-unit) * 2);        /* 16px */
+      --space-3: calc(var(--space-unit) * 3);        /* 24px */
+      --space-4: calc(var(--space-unit) * 4);        /* 32px */
+      --space-5: calc(var(--space-unit) * 5);        /* 40px */
+      --space-6: calc(var(--space-unit) * 6);        /* 48px */
+      --space-8: calc(var(--space-unit) * 8);        /* 64px */
+      --space-10: calc(var(--space-unit) * 10);      /* 80px */
+      --space-12: calc(var(--space-unit) * 12);      /* 96px */
+      --space-16: calc(var(--space-unit) * 16);      /* 128px */
+    }
+
+    /* ========================================
+       Reset
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ========================================
+       Focus Styles
+       ======================================== */
+    :focus-visible {
+      outline: 2px solid var(--color-dark);
+      outline-offset: 3px;
+    }
+
+    /* ========================================
+       Reduced Motion
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ========================================
+       Skip Link
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-2);
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-1) var(--space-2);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: var(--space-2);
+    }
+
+    /* ========================================
+       Container
+       ======================================== */
+    .container {
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+
+    /* ========================================
+       Rules
+       ======================================== */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--color-rule);
+    }
+
+    .rule--dark {
+      border-color: var(--color-dark);
+    }
+
+    /* ========================================
+       Header / Navigation
+       ======================================== */
+    .site-header {
+      padding: var(--space-4) 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .main-nav ul {
+      display: flex;
+      gap: var(--space-5);
+    }
+
+    .main-nav a {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.3s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"] {
+      color: var(--color-text);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-rule);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: var(--space-1) var(--space-2);
+      color: var(--color-text);
+    }
+
+    /* ========================================
+       Hero
+       ======================================== */
+    .hero {
+      padding: var(--space-12) 0 var(--space-10);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--space-8);
+      align-items: end;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-right {
+      padding-bottom: var(--space-1);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-desc {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--color-dark);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-text);
+      padding: var(--space-2) var(--space-5);
+      transition: background 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--color-dark);
+    }
+
+    /* ========================================
+       Services
+       ======================================== */
+    .services {
+      padding: var(--space-10) 0;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: var(--space-6);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .service-card {
+      padding: var(--space-5) var(--space-4) var(--space-5) 0;
+      border-top: 1px solid var(--color-rule);
+      position: relative;
+    }
+
+    .service-card:nth-child(2) {
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+      border-left: 1px solid var(--color-rule);
+      border-right: 1px solid var(--color-rule);
+    }
+
+    .service-card:nth-child(3) {
+      padding-left: var(--space-4);
+      padding-right: 0;
+    }
+
+    .service-index {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--color-mid);
+      margin-bottom: var(--space-3);
+      display: block;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--space-2);
+      color: var(--color-text);
+    }
+
+    .service-text {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--color-dark);
+      margin-bottom: var(--space-3);
+    }
+
+    .service-link {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      transition: color 0.2s ease;
+    }
+
+    .service-link::after {
+      content: '\2192';
+      transition: transform 0.2s ease;
+    }
+
+    .service-link:hover {
+      color: var(--color-dark);
+    }
+
+    .service-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* ========================================
+       Interlude / Statement
+       ======================================== */
+    .statement {
+      padding: var(--space-12) 0;
+      text-align: center;
+    }
+
+    .statement-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--color-dark);
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .statement-attr {
+      display: block;
+      margin-top: var(--space-3);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+    }
+
+    /* ========================================
+       Blog Teaser
+       ======================================== */
+    .blog-section {
+      padding: var(--space-10) 0;
+    }
+
+    .blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: var(--space-5);
+    }
+
+    .blog-heading {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .blog-view-all {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.2s ease;
+    }
+
+    .blog-view-all:hover {
+      color: var(--color-text);
+    }
+
+    .blog-list {
+      border-top: 1px solid var(--color-rule);
+    }
+
+    .blog-item {
+      display: grid;
+      grid-template-columns: 8rem 1fr auto;
+      gap: var(--space-4);
+      align-items: baseline;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-rule-light);
+      transition: background 0.3s ease;
+    }
+
+    .blog-item:hover {
+      background: var(--color-surface);
+      margin: 0 calc(-1 * var(--space-3));
+      padding-left: var(--space-3);
+      padding-right: var(--space-3);
+    }
+
+    .blog-date {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      white-space: nowrap;
+    }
+
+    .blog-content {
+      min-width: 0;
+    }
+
+    .blog-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: var(--space-1);
+      color: var(--color-text);
+      transition: color 0.2s ease;
+    }
+
+    .blog-item:hover .blog-title {
+      color: var(--color-hover);
+    }
+
+    .blog-excerpt {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-dark);
+    }
+
+    .blog-arrow {
+      font-size: 1.25rem;
+      color: var(--color-rule);
+      transition: color 0.2s ease, transform 0.2s ease;
+      align-self: center;
+    }
+
+    .blog-item:hover .blog-arrow {
+      color: var(--color-text);
+      transform: translateX(4px);
+    }
+
+    /* ========================================
+       Contact CTA
+       ======================================== */
+    .contact-cta {
+      padding: var(--space-16) 0;
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .contact-label {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: var(--space-3);
+    }
+
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: var(--space-3);
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .contact-subline {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-dark);
+      margin-bottom: var(--space-5);
+    }
+
+    .contact-btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-text);
+      padding: var(--space-2) var(--space-6);
+      transition: background 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--color-dark);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      padding: var(--space-5) 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--color-mid);
+    }
+
+    .footer-credentials {
+      font-size: 0.6875rem;
+      color: var(--color-mid);
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-4);
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      color: var(--color-mid);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text);
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 64rem) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card,
+      .service-card:nth-child(2),
+      .service-card:nth-child(3) {
+        padding-left: 0;
+        padding-right: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .blog-item {
+        grid-template-columns: 1fr;
+        gap: var(--space-1);
+      }
+
+      .blog-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 48rem) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        width: 100%;
+        padding-top: var(--space-3);
+      }
+
+      .main-nav.is-open {
+        display: block;
+      }
+
+      .main-nav ul {
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-2);
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-name" aria-label="Carla Puscas, home page">Carla Puscas</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
+          Menu
+        </button>
+        <nav class="main-nav" id="main-menu" aria-label="Main navigation">
+          <ul>
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <hr class="rule" aria-hidden="true">
+
+  <!-- ========================================
+       Main Content
+       ======================================== -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1 id="hero-heading" class="hero-headline">
+              Understanding<br>
+              yourself is the<br>
+              <em>beginning</em>
+            </h1>
+          </div>
+          <div class="hero-right">
+            <p class="hero-sub">Clinical &amp; Educational Psychology</p>
+            <p class="hero-desc">
+              Evidence-based psychological support for individuals, families,
+              and young people. Grounded in clinical rigor, delivered with
+              genuine warmth and deep respect for your unique story.
+            </p>
+            <a href="#contact" class="hero-cta">Schedule a Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule" aria-hidden="true"></div>
+
+    <!-- Services -->
+    <section class="services" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-label" id="services-heading">Services</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-index">01</span>
+            <h2 class="service-title">Clinical Psychology</h2>
+            <p class="service-text">
+              Therapeutic support for adults and adolescents navigating anxiety,
+              depression, trauma, and life transitions. Collaborative, confidential,
+              and tailored to your needs.
+            </p>
+            <a href="#" class="service-link">Learn more</a>
+          </article>
+          <article class="service-card">
+            <span class="service-index">02</span>
+            <h2 class="service-title">Educational Psychology</h2>
+            <p class="service-text">
+              Comprehensive assessments and interventions for children experiencing
+              learning difficulties, behavioral challenges, and developmental needs
+              in educational settings.
+            </p>
+            <a href="#" class="service-link">Learn more</a>
+          </article>
+          <article class="service-card">
+            <span class="service-index">03</span>
+            <h2 class="service-title">Vocational Counseling</h2>
+            <p class="service-text">
+              Career exploration and decision-making guidance for individuals at
+              crossroads, seeking alignment between their values and professional life.
+            </p>
+            <a href="#" class="service-link">Learn more</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule" aria-hidden="true"></div>
+
+    <!-- Statement -->
+    <section class="statement" aria-label="Featured quote">
+      <div class="container">
+        <blockquote class="statement-text">
+          "Clarity does not come from having all the answers. It comes
+          from learning to sit with the right questions."
+          <cite class="statement-attr">Carla Puscas</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule" aria-hidden="true"></div>
+
+    <!-- Blog Teaser -->
+    <section class="blog-section" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="blog-header">
+          <h2 id="blog-heading" class="blog-heading">Recent Writing</h2>
+          <a href="#" class="blog-view-all">View all</a>
+        </div>
+        <div class="blog-list">
+          <article class="blog-item">
+            <a href="#" style="display:contents;">
+              <span class="blog-date">Mar 2026</span>
+              <div class="blog-content">
+                <h3 class="blog-title">The Quiet Architecture of Resilience</h3>
+                <p class="blog-excerpt">
+                  Resilience is not an inherent trait but a practice, built through small intentional choices in moments of difficulty.
+                </p>
+              </div>
+              <span class="blog-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+          <article class="blog-item">
+            <a href="#" style="display:contents;">
+              <span class="blog-date">Feb 2026</span>
+              <div class="blog-content">
+                <h3 class="blog-title">When Children Struggle: Beyond the Obvious</h3>
+                <p class="blog-excerpt">
+                  Academic difficulties often mask deeper emotional or developmental needs that require a whole-child perspective.
+                </p>
+              </div>
+              <span class="blog-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+          <article class="blog-item">
+            <a href="#" style="display:contents;">
+              <span class="blog-date">Jan 2026</span>
+              <div class="blog-content">
+                <h3 class="blog-title">Career Change at 40: Permission to Reinvent</h3>
+                <p class="blog-excerpt">
+                  Mid-career transitions are acts of courage, not failures of planning.
+                </p>
+              </div>
+              <span class="blog-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><hr class="rule" aria-hidden="true"></div>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner">
+          <p class="contact-label">Get in Touch</p>
+          <h2 id="contact-heading" class="contact-headline">
+            Ready to take<br>the <em>first step</em>?
+          </h2>
+          <p class="contact-subline">
+            A free initial conversation to explore whether we are the right
+            fit. No pressure, no obligation, just a genuine exchange.
+          </p>
+          <a href="mailto:hello@carlapuscas.com" class="contact-btn">Contact Carla</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="container"><hr class="rule" aria-hidden="true"></div>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 Carla Puscas</p>
+        <p class="footer-credentials">
+          Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor
+        </p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       Mobile Menu Script
+       ======================================== -->
+  <script>
+    (function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.textContent = isOpen ? 'Close' : 'Menu';
+      });
+    })();
+  </script>
+</body>
+</html>

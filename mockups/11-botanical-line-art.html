@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-white: #FAFDF7;
+      --color-forest: #1B3A2D;
+      --color-sage: #8FAE7C;
+      --color-sand: #D9CDB8;
+      --color-forest-light: #2B5A42;
+      --color-sage-light: #C6D9BB;
+      --color-cream: #F4F1EA;
+      --font-display: 'Lora', serif;
+      --font-body: 'Poppins', sans-serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-2xl: 8rem;
+      --max-width: 1100px;
+      --transition-base: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--color-forest);
+      background-color: var(--color-white);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--color-sage);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      background: var(--color-forest);
+      color: var(--color-white);
+      padding: var(--space-xs) var(--space-sm);
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 1000;
+      border-radius: 0 0 6px 6px;
+    }
+    .skip-link:focus { top: 0; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ================================
+       HEADER
+       ================================ */
+    .site-header {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-sage-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      text-decoration: none;
+    }
+
+    .site-name em {
+      color: var(--color-sage);
+      font-style: normal;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--color-forest);
+      transition: color var(--transition-base);
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus-visible {
+      color: var(--color-sage);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-sage);
+      color: var(--color-forest);
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* ================================
+       BOTANICAL SVG LINE ART
+       ================================ */
+    .botanical-svg {
+      display: block;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .botanical-svg path,
+    .botanical-svg circle,
+    .botanical-svg ellipse {
+      fill: none;
+      stroke: var(--color-sage);
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .botanical-svg .leaf-fill {
+      fill: var(--color-sage);
+      fill-opacity: 0.08;
+    }
+
+    /* Botanical section divider */
+    .botanical-divider {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-md);
+      text-align: center;
+    }
+
+    .botanical-divider svg {
+      max-width: 300px;
+      height: 40px;
+      margin: 0 auto;
+    }
+
+    /* ================================
+       HERO
+       ================================ */
+    .hero {
+      position: relative;
+      padding: var(--space-xl) var(--space-md) var(--space-2xl);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-botanical {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-botanical svg {
+      position: absolute;
+    }
+
+    .hero-botanical .branch-left {
+      top: 20px;
+      left: -40px;
+      width: 350px;
+      height: 500px;
+      opacity: 0.35;
+    }
+
+    .hero-botanical .branch-right {
+      top: 10px;
+      right: -40px;
+      width: 350px;
+      height: 500px;
+      opacity: 0.35;
+      transform: scaleX(-1);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin-bottom: var(--space-sm);
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--color-sage-light);
+      border-radius: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-forest);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero h1 em {
+      color: var(--color-sage);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--color-forest-light);
+      margin-bottom: var(--space-md);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.25rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border: 2px solid var(--color-forest);
+      color: var(--color-forest);
+      background: transparent;
+      border-radius: 30px;
+      transition: all var(--transition-base);
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: var(--color-forest);
+      color: var(--color-white);
+    }
+
+    .btn--filled {
+      background: var(--color-forest);
+      color: var(--color-white);
+    }
+
+    .btn--filled:hover,
+    .btn--filled:focus-visible {
+      background: var(--color-forest-light);
+      border-color: var(--color-forest-light);
+    }
+
+    .btn--sage {
+      border-color: var(--color-sage);
+      color: var(--color-forest);
+    }
+
+    .btn--sage:hover,
+    .btn--sage:focus-visible {
+      background: var(--color-sage);
+      color: var(--color-white);
+      border-color: var(--color-sage);
+    }
+
+    /* ================================
+       SERVICES
+       ================================ */
+    .services {
+      padding: var(--space-xl) var(--space-md);
+      background: var(--color-cream);
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      text-align: center;
+      margin-bottom: var(--space-xs);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      color: var(--color-forest);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: var(--space-md) var(--space-md) var(--space-lg);
+      text-align: center;
+      border: 1px solid var(--color-sage-light);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(27, 58, 45, 0.08);
+    }
+
+    .service-card-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto var(--space-sm);
+    }
+
+    .service-card-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--color-forest-light);
+    }
+
+    /* ================================
+       BLOG
+       ================================ */
+    .blog {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .blog-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-sage-light);
+      transition: box-shadow var(--transition-base);
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 8px 32px rgba(27, 58, 45, 0.08);
+    }
+
+    .blog-card-accent {
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-sage), var(--color-sand));
+    }
+
+    .blog-card-body {
+      padding: var(--space-md);
+    }
+
+    .blog-card-date {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin-bottom: var(--space-xs);
+    }
+
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      line-height: 1.4;
+      margin-bottom: var(--space-sm);
+    }
+
+    .blog-card p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-forest-light);
+    }
+
+    .blog-card-link {
+      display: inline-block;
+      margin-top: var(--space-sm);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-sage);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-base);
+    }
+
+    .blog-card-link:hover,
+    .blog-card-link:focus-visible {
+      border-bottom-color: var(--color-sage);
+    }
+
+    /* ================================
+       CONTACT CTA
+       ================================ */
+    .contact-cta {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md);
+      background: var(--color-forest);
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(143, 174, 124, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(143, 174, 124, 0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .contact-cta .section-label {
+      color: var(--color-sage-light);
+    }
+
+    .contact-cta .section-title {
+      color: var(--color-white);
+    }
+
+    .contact-cta-text {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--color-sage-light);
+      max-width: 520px;
+      margin: 0 auto var(--space-md);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-cta .btn--sage {
+      border-color: var(--color-sage-light);
+      color: var(--color-white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-cta .btn--sage:hover,
+    .contact-cta .btn--sage:focus-visible {
+      background: var(--color-sage-light);
+      color: var(--color-forest);
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+    .site-footer {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      border-top: 1px solid var(--color-sage-light);
+      background: var(--color-white);
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-credentials {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: var(--color-forest-light);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--color-sage);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--color-forest);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--color-forest-light);
+      opacity: 0.6;
+    }
+
+    /* ================================
+       RESPONSIVE
+       ================================ */
+    @media (max-width: 900px) {
+      .services-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+
+      .hero-botanical .branch-left,
+      .hero-botanical .branch-right {
+        width: 200px;
+        opacity: 0.2;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        border-bottom: 1px solid var(--color-sage-light);
+        padding: var(--space-md);
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .nav-list.is-open { display: flex; }
+      .menu-toggle { display: block; }
+      .header-inner { position: relative; }
+
+      .hero-botanical { display: none; }
+      .footer-links { flex-direction: column; gap: var(--space-xs); }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-name">Carla <em>Puscas</em></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list" id="main-nav">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO with botanical SVG line art framing -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-botanical" aria-hidden="true">
+      <!-- Left branch botanical SVG -->
+      <svg class="branch-left" viewBox="0 0 350 500" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#8FAE7C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Main stem -->
+          <path d="M180 500 C175 420, 160 350, 150 280 C140 210, 120 150, 100 80"/>
+          <!-- Branch 1 - lower left -->
+          <path d="M168 400 C145 380, 110 370, 70 380"/>
+          <path d="M70 380 C90 365, 110 355, 125 370" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M70 380 C85 390, 105 385, 125 370"/>
+          <!-- Leaf pair 1 -->
+          <path d="M155 320 C130 300, 90 295, 55 310"/>
+          <path d="M55 310 C80 295, 110 290, 130 310" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M55 310 C75 320, 100 318, 130 310"/>
+          <!-- Branch 2 - upper left -->
+          <path d="M140 240 C115 220, 75 215, 40 230"/>
+          <path d="M40 230 C65 215, 95 210, 115 230" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M40 230 C60 240, 85 238, 115 230"/>
+          <!-- Small leaf right side -->
+          <path d="M160 350 C175 330, 195 320, 220 325"/>
+          <path d="M220 325 C200 320, 180 325, 168 340"/>
+          <!-- Upper right leaf -->
+          <path d="M135 190 C155 170, 180 165, 210 175"/>
+          <path d="M210 175 C185 165, 160 170, 145 185"/>
+          <!-- Top leaf left -->
+          <path d="M110 130 C85 110, 55 108, 30 120"/>
+          <path d="M30 120 C50 108, 75 105, 95 120" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M30 120 C48 128, 70 126, 95 120"/>
+          <!-- Top leaf right -->
+          <path d="M105 100 C120 80, 140 70, 168 78"/>
+          <path d="M168 78 C145 70, 125 75, 112 92"/>
+          <!-- Small berries / buds -->
+          <circle cx="30" cy="120" r="3" fill="none"/>
+          <circle cx="40" cy="230" r="3" fill="none"/>
+          <circle cx="55" cy="310" r="2.5" fill="none"/>
+          <circle cx="70" cy="380" r="2.5" fill="none"/>
+          <!-- Thin tendril -->
+          <path d="M100 80 C95 65, 85 50, 90 35 C95 20, 105 15, 110 25"/>
+          <!-- Additional detail leaves -->
+          <path d="M175 440 C190 425, 210 420, 235 428"/>
+          <path d="M235 428 C215 420, 195 422, 180 435"/>
+        </g>
+      </svg>
+
+      <!-- Right branch (mirrored) -->
+      <svg class="branch-right" viewBox="0 0 350 500" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#8FAE7C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M180 500 C175 420, 160 350, 150 280 C140 210, 120 150, 100 80"/>
+          <path d="M168 400 C145 380, 110 370, 70 380"/>
+          <path d="M70 380 C90 365, 110 355, 125 370" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M70 380 C85 390, 105 385, 125 370"/>
+          <path d="M155 320 C130 300, 90 295, 55 310"/>
+          <path d="M55 310 C80 295, 110 290, 130 310" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M55 310 C75 320, 100 318, 130 310"/>
+          <path d="M140 240 C115 220, 75 215, 40 230"/>
+          <path d="M40 230 C65 215, 95 210, 115 230" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M40 230 C60 240, 85 238, 115 230"/>
+          <path d="M160 350 C175 330, 195 320, 220 325"/>
+          <path d="M220 325 C200 320, 180 325, 168 340"/>
+          <path d="M135 190 C155 170, 180 165, 210 175"/>
+          <path d="M210 175 C185 165, 160 170, 145 185"/>
+          <path d="M110 130 C85 110, 55 108, 30 120"/>
+          <path d="M30 120 C50 108, 75 105, 95 120" class="leaf-fill" fill="#8FAE7C" fill-opacity="0.06"/>
+          <path d="M30 120 C48 128, 70 126, 95 120"/>
+          <path d="M105 100 C120 80, 140 70, 168 78"/>
+          <path d="M168 78 C145 70, 125 75, 112 92"/>
+          <circle cx="30" cy="120" r="3" fill="none"/>
+          <circle cx="40" cy="230" r="3" fill="none"/>
+          <circle cx="55" cy="310" r="2.5" fill="none"/>
+          <circle cx="70" cy="380" r="2.5" fill="none"/>
+          <path d="M100 80 C95 65, 85 50, 90 35 C95 20, 105 15, 110 25"/>
+          <path d="M175 440 C190 425, 210 420, 235 428"/>
+          <path d="M235 428 C215 420, 195 422, 180 435"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-tag">Clinical &amp; Educational Psychologist</span>
+      <h1 id="hero-title">Growth happens from the <em>roots</em> up.</h1>
+      <p class="hero-subtitle">Nurturing psychological wellbeing through clinical insight, educational understanding, and vocational clarity. Gentle, grounded, evidence-based care for every stage of life.</p>
+      <a href="#contact" class="btn btn--filled">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Botanical divider -->
+  <div class="botanical-divider" aria-hidden="true">
+    <svg viewBox="0 0 300 40" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#8FAE7C" stroke-width="1" stroke-linecap="round">
+        <line x1="0" y1="20" x2="110" y2="20" opacity="0.3"/>
+        <path d="M120 20 C130 10, 140 5, 150 10 C155 12, 155 18, 150 20 C155 22, 155 28, 150 30 C140 35, 130 30, 120 20Z" fill="#8FAE7C" fill-opacity="0.08"/>
+        <path d="M180 20 C170 10, 160 5, 150 10 C145 12, 145 18, 150 20 C145 22, 145 28, 150 30 C160 35, 170 30, 180 20Z" fill="#8FAE7C" fill-opacity="0.08"/>
+        <line x1="190" y1="20" x2="300" y2="20" opacity="0.3"/>
+        <circle cx="150" cy="20" r="2" fill="#8FAE7C" fill-opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" aria-labelledby="services-title">
+    <p class="section-label">How I Can Help</p>
+    <h2 class="section-title" id="services-title">Areas of Practice</h2>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#8FAE7C" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="28" cy="28" r="20" opacity="0.2"/>
+              <path d="M28 14 C22 18, 18 24, 18 30 C18 36, 22 42, 28 42 C34 42, 38 36, 38 30 C38 24, 34 18, 28 14Z" fill="#8FAE7C" fill-opacity="0.08"/>
+              <path d="M28 20 C28 28, 28 36, 28 42"/>
+              <path d="M22 26 C25 24, 28 28, 28 28"/>
+              <path d="M34 26 C31 24, 28 28, 28 28"/>
+            </g>
+          </svg>
+        </div>
+        <h3>Clinical Psychology</h3>
+        <p>Compassionate, evidence-based therapy for adults experiencing anxiety, depression, grief, and major life transitions. Together we cultivate the inner resources needed for lasting change.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#8FAE7C" stroke-width="1.5" stroke-linecap="round">
+              <path d="M14 38 L28 14 L42 38 Z" fill="#8FAE7C" fill-opacity="0.06" opacity="0.4"/>
+              <path d="M18 38 C22 30, 28 22, 28 16"/>
+              <path d="M38 38 C34 30, 28 22, 28 16"/>
+              <path d="M22 30 C25 28, 31 28, 34 30"/>
+              <circle cx="28" cy="16" r="3" fill="#8FAE7C" fill-opacity="0.1"/>
+            </g>
+          </svg>
+        </div>
+        <h3>Educational Psychology</h3>
+        <p>Thorough assessments for children and adolescents to understand learning differences, attention, and emotional needs. Helping families and schools create the right conditions for every learner to thrive.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#8FAE7C" stroke-width="1.5" stroke-linecap="round">
+              <path d="M16 40 C20 30, 28 20, 40 16" opacity="0.4"/>
+              <path d="M16 40 C24 36, 32 28, 40 16"/>
+              <path d="M30 26 C34 22, 38 18, 40 16"/>
+              <path d="M40 16 C42 22, 40 26, 36 28" fill="#8FAE7C" fill-opacity="0.08"/>
+              <path d="M40 16 C38 20, 34 22, 30 22" fill="#8FAE7C" fill-opacity="0.08"/>
+              <circle cx="16" cy="40" r="3" fill="#8FAE7C" fill-opacity="0.15"/>
+              <circle cx="40" cy="16" r="2" fill="#8FAE7C" fill-opacity="0.15"/>
+            </g>
+          </svg>
+        </div>
+        <h3>Vocational Counseling</h3>
+        <p>Guided career exploration and assessment for people at meaningful crossroads. Clarifying your strengths, values, and aspirations to find professional paths that truly fit your life.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Botanical divider -->
+  <div class="botanical-divider" aria-hidden="true">
+    <svg viewBox="0 0 300 40" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#8FAE7C" stroke-width="1" stroke-linecap="round">
+        <line x1="0" y1="20" x2="120" y2="20" opacity="0.3"/>
+        <path d="M130 20 C135 12, 145 8, 150 14"/>
+        <path d="M150 14 C150 8, 155 4, 160 10"/>
+        <path d="M160 10 C160 4, 165 2, 168 8"/>
+        <path d="M130 20 C135 28, 145 32, 150 26"/>
+        <path d="M150 26 C150 32, 155 36, 160 30"/>
+        <path d="M160 30 C160 36, 165 38, 168 32"/>
+        <line x1="178" y1="20" x2="300" y2="20" opacity="0.3"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- BLOG -->
+  <section class="blog" aria-labelledby="blog-title">
+    <p class="section-label">From the Garden of Thought</p>
+    <h2 class="section-title" id="blog-title">Recent Writing</h2>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-card-accent"></div>
+        <div class="blog-card-body">
+          <p class="blog-card-date">March 2026</p>
+          <h3>Tending Your Inner Garden: On Self-Compassion</h3>
+          <p>How the metaphor of gardening can transform the way we relate to our own emotional landscapes and imperfections.</p>
+          <a href="#" class="blog-card-link">Read more</a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-card-accent"></div>
+        <div class="blog-card-body">
+          <p class="blog-card-date">February 2026</p>
+          <h3>Seasons of Change: Navigating Life Transitions</h3>
+          <p>Why the cyclical nature of growth, loss, and renewal offers a healthier framework than linear progress for understanding our lives.</p>
+          <a href="#" class="blog-card-link">Read more</a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-card-accent"></div>
+        <div class="blog-card-body">
+          <p class="blog-card-date">January 2026</p>
+          <h3>Roots and Wings: Supporting Children's Autonomy</h3>
+          <p>Balancing the need to protect our children with the equally vital need to let them explore, fail, and grow on their own terms.</p>
+          <a href="#" class="blog-card-link">Read more</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" id="contact" aria-labelledby="contact-title">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title" id="contact-title">Let Us Start a Conversation</h2>
+    <p class="contact-cta-text">Whether you are looking for personal support, guidance for your child, or direction in your career, the first step is always a simple, unhurried conversation. I would love to hear your story.</p>
+    <a href="mailto:hello@carlapuscas.com" class="btn btn--sage">Reach Out</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-name">Carla Puscas</p>
+  <p class="footer-credentials">Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor</p>
+  <ul class="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Carla Puscas. All rights reserved.</p>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.menu-toggle');
+    var nav = document.querySelector('#main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

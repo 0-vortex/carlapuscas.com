@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Puscas — Clinical &amp; Educational Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS Custom Properties
+       ======================================== */
+    :root {
+      --color-bg: #FAFAF5;
+      --color-text: #1A1A1A;
+      --color-accent: #C4644A;
+      --color-accent-hover: #A8503A;
+      --color-rule: #1A1A1A;
+      --color-muted: #6B6B60;
+      --color-surface: #F0EFE8;
+      --color-surface-alt: #E8E7DF;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Source Serif 4', Georgia, serif;
+
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+      --space-4xl: 8rem;
+    }
+
+    /* ========================================
+       Reset
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ========================================
+       Focus Styles
+       ======================================== */
+    :focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    /* ========================================
+       Reduced Motion
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ========================================
+       Skip Link
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-md);
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: var(--space-md);
+    }
+
+    /* ========================================
+       Full-Width Rule
+       ======================================== */
+    .full-rule {
+      border: none;
+      border-top: 1px solid var(--color-rule);
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+
+    .thin-rule {
+      border: none;
+      border-top: 1px solid var(--color-rule);
+      opacity: 0.2;
+    }
+
+    /* ========================================
+       Container
+       ======================================== */
+    .container {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* ========================================
+       Header / Navigation
+       ======================================== */
+    .site-header {
+      padding: var(--space-lg) 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .main-nav ul {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .main-nav a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transition: width 0.3s ease;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    .main-nav a:hover {
+      color: var(--color-accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text);
+      padding: var(--space-xs);
+    }
+
+    /* ========================================
+       Hero Section — Editorial Drop Cap
+       ======================================== */
+    .hero {
+      padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: end;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-intro {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--color-muted);
+    }
+
+    .hero-intro::first-letter {
+      font-family: var(--font-display);
+      font-size: 5.5rem;
+      font-weight: 900;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.15em;
+      margin-top: 0.05em;
+      color: var(--color-accent);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      margin-top: var(--space-lg);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-text);
+      padding: var(--space-md) var(--space-xl);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    /* ========================================
+       Section Heading
+       ======================================== */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: var(--space-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-rule);
+      opacity: 0.2;
+    }
+
+    /* ========================================
+       Services — Multi-Column
+       ======================================== */
+    .services {
+      padding: var(--space-3xl) 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--color-rule);
+      border: 1px solid var(--color-rule);
+    }
+
+    .service-card {
+      background: var(--color-bg);
+      padding: var(--space-xl);
+    }
+
+    .service-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--color-surface-alt);
+      margin-bottom: var(--space-md);
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .service-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-muted);
+    }
+
+    .service-link {
+      display: inline-block;
+      margin-top: var(--space-lg);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border-bottom: 1px solid var(--color-accent);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .service-link:hover {
+      color: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+    }
+
+    /* ========================================
+       Pull Quote
+       ======================================== */
+    .pull-quote-section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .pull-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.3;
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto;
+      position: relative;
+      padding: var(--space-2xl) 0;
+    }
+
+    .pull-quote::before,
+    .pull-quote::after {
+      content: '';
+      display: block;
+      width: 4rem;
+      height: 1px;
+      background: var(--color-accent);
+      margin: 0 auto var(--space-lg);
+    }
+
+    .pull-quote::after {
+      margin: var(--space-lg) auto 0;
+    }
+
+    .pull-quote-attr {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-top: var(--space-lg);
+    }
+
+    /* ========================================
+       Blog Teaser — Newspaper Columns
+       ======================================== */
+    .blog-section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .blog-card-featured {
+      grid-row: span 1;
+    }
+
+    .blog-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: var(--space-sm);
+    }
+
+    .blog-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: var(--space-md);
+      transition: color 0.2s ease;
+    }
+
+    .blog-card-featured .blog-title {
+      font-size: 2.25rem;
+    }
+
+    .blog-card a:hover .blog-title {
+      color: var(--color-accent);
+    }
+
+    .blog-excerpt {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-muted);
+    }
+
+    .blog-card-featured .blog-excerpt {
+      column-count: 2;
+      column-gap: var(--space-lg);
+    }
+
+    .blog-read-more {
+      display: inline-block;
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    /* ========================================
+       Contact CTA
+       ======================================== */
+    .contact-cta {
+      padding: var(--space-4xl) 0;
+      text-align: center;
+    }
+
+    .contact-cta-inner {
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-subline {
+      font-size: 1.125rem;
+      color: var(--color-muted);
+      margin-bottom: var(--space-xl);
+      line-height: 1.7;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      padding: var(--space-md) var(--space-2xl);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      padding: var(--space-2xl) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+
+    .footer-credentials {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 64rem) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-card-featured .blog-excerpt {
+        column-count: 1;
+      }
+
+      .blog-card-featured .blog-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 48rem) {
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        width: 100%;
+        padding-top: var(--space-lg);
+      }
+
+      .main-nav.is-open {
+        display: block;
+      }
+
+      .main-nav ul {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-name" aria-label="Carla Puscas, home page">Carla Puscas</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
+          &#9776;
+        </button>
+        <nav class="main-nav" id="main-menu" aria-label="Main navigation">
+          <ul>
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <hr class="full-rule" aria-hidden="true">
+
+  <!-- ========================================
+       Main Content
+       ======================================== -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1 id="hero-heading" class="hero-headline">
+              Clarity<br>
+              Begins<br>
+              Within
+            </h1>
+          </div>
+          <div>
+            <p class="hero-intro">
+              Clinical psychology, educational guidance, and vocational
+              counseling grounded in evidence and shaped by genuine human
+              connection. Every journey toward understanding yourself more
+              deeply starts with a single conversation. Carla Puscas brings
+              two decades of clinical insight to help individuals, families,
+              and young people navigate life's most complex chapters with
+              confidence and compassion.
+            </p>
+            <a href="#contact" class="hero-cta">Schedule a Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="full-rule" aria-hidden="true">
+
+    <!-- Services -->
+    <section class="services" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-heading" id="services-heading">Services</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <p class="service-number" aria-hidden="true">01</p>
+            <h2 class="service-title">Clinical Psychology</h2>
+            <p class="service-text">
+              Evidence-based therapeutic approaches for adults and adolescents
+              facing anxiety, depression, trauma, and life transitions. Sessions
+              are collaborative, confidential, and tailored to your unique needs.
+            </p>
+            <a href="#" class="service-link">Learn More</a>
+          </article>
+          <article class="service-card">
+            <p class="service-number" aria-hidden="true">02</p>
+            <h2 class="service-title">Educational Psychology</h2>
+            <p class="service-text">
+              Comprehensive assessments and intervention strategies for children
+              and young people experiencing learning difficulties, behavioral
+              challenges, and developmental concerns within educational settings.
+            </p>
+            <a href="#" class="service-link">Learn More</a>
+          </article>
+          <article class="service-card">
+            <p class="service-number" aria-hidden="true">03</p>
+            <h2 class="service-title">Vocational Counseling</h2>
+            <p class="service-text">
+              Guided career exploration and decision-making support for individuals
+              at crossroads, whether entering the workforce, changing direction, or
+              seeking deeper alignment between values and professional life.
+            </p>
+            <a href="#" class="service-link">Learn More</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="full-rule" aria-hidden="true">
+
+    <!-- Pull Quote -->
+    <section class="pull-quote-section" aria-label="Featured quote">
+      <div class="container">
+        <blockquote class="pull-quote">
+          "The goal of therapy is not to become a different person, but to
+          become more fully the person you already are."
+          <cite class="pull-quote-attr">Carla Puscas</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <hr class="full-rule" aria-hidden="true">
+
+    <!-- Blog Teaser -->
+    <section class="blog-section" aria-labelledby="blog-heading">
+      <div class="container">
+        <p class="section-heading" id="blog-heading">From the Journal</p>
+        <div class="blog-grid">
+          <article class="blog-card blog-card-featured">
+            <a href="#">
+              <p class="blog-date">March 2026</p>
+              <h2 class="blog-title">The Quiet Architecture of Resilience</h2>
+              <p class="blog-excerpt">
+                Resilience is often misunderstood as an inherent trait, something
+                you either possess or lack. In reality, it is a practice built
+                through small, intentional choices made in moments of difficulty.
+                This month we explore the daily habits and mindset shifts that
+                form the foundation of genuine psychological resilience, and why
+                the most powerful changes are often the least dramatic.
+              </p>
+              <span class="blog-read-more" aria-hidden="true">Read Article</span>
+            </a>
+          </article>
+          <article class="blog-card">
+            <a href="#">
+              <p class="blog-date">February 2026</p>
+              <h2 class="blog-title">When Children Struggle in School: Beyond the Obvious</h2>
+              <p class="blog-excerpt">
+                Academic difficulties often mask deeper emotional or developmental
+                needs. Understanding the full picture requires looking past grades
+                to the whole child.
+              </p>
+              <span class="blog-read-more" aria-hidden="true">Read Article</span>
+            </a>
+          </article>
+          <article class="blog-card">
+            <a href="#">
+              <p class="blog-date">January 2026</p>
+              <h2 class="blog-title">Career Change at 40: Permission to Reinvent</h2>
+              <p class="blog-excerpt">
+                Mid-career transitions are not failures of planning but acts
+                of courage. Here is how to navigate the uncertainty with clarity
+                and self-compassion.
+              </p>
+              <span class="blog-read-more" aria-hidden="true">Read Article</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="full-rule" aria-hidden="true">
+
+    <!-- Contact CTA -->
+    <section class="contact-cta" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-cta-inner">
+          <h2 id="contact-heading" class="contact-headline">Ready to Begin?</h2>
+          <p class="contact-subline">
+            The first step is often the hardest. Reach out for a free initial
+            conversation to explore how we might work together.
+          </p>
+          <a href="mailto:hello@carlapuscas.com" class="contact-btn">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <hr class="full-rule" aria-hidden="true">
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 Carla Puscas</p>
+        <p class="footer-credentials">
+          Clinical Psychologist &middot; Educational Psychologist &middot; Vocational Counselor
+        </p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       Mobile Menu Script
+       ======================================== -->
+  <script>
+    (function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+      });
+    })();
+  </script>
+</body>
+</html>
