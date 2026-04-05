@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}/services'
 import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
@@ -18,11 +17,6 @@ import { Route as Char123LocaleChar125SplatRouteImport } from './routes/{-$local
 import { Route as Char123LocaleChar125BlogIndexRouteImport } from './routes/{-$locale}/blog.index'
 import { Route as Char123LocaleChar125BlogSlugRouteImport } from './routes/{-$locale}/blog.$slug'
 
-const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
-  id: '/llms.txt',
-  path: '/llms.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const Char123LocaleChar125IndexRoute =
   Char123LocaleChar125IndexRouteImport.update({
     id: '/{-$locale}/',
@@ -67,7 +61,6 @@ const Char123LocaleChar125BlogSlugRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/llms.txt': typeof LlmsDottxtRoute
   '/{-$locale}/$': typeof Char123LocaleChar125SplatRoute
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
@@ -77,7 +70,6 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/blog/': typeof Char123LocaleChar125BlogIndexRoute
 }
 export interface FileRoutesByTo {
-  '/llms.txt': typeof LlmsDottxtRoute
   '/{-$locale}/$': typeof Char123LocaleChar125SplatRoute
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
@@ -88,7 +80,6 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/llms.txt': typeof LlmsDottxtRoute
   '/{-$locale}/$': typeof Char123LocaleChar125SplatRoute
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
@@ -100,7 +91,6 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/llms.txt'
     | '/{-$locale}/$'
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
@@ -110,7 +100,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/llms.txt'
     | '/{-$locale}/$'
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
@@ -120,7 +109,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/blog'
   id:
     | '__root__'
-    | '/llms.txt'
     | '/{-$locale}/$'
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
@@ -131,7 +119,6 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  LlmsDottxtRoute: typeof LlmsDottxtRoute
   Char123LocaleChar125SplatRoute: typeof Char123LocaleChar125SplatRoute
   Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
   Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
@@ -143,13 +130,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/llms.txt': {
-      id: '/llms.txt'
-      path: '/llms.txt'
-      fullPath: '/llms.txt'
-      preLoaderRoute: typeof LlmsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/{-$locale}/': {
       id: '/{-$locale}/'
       path: '/{-$locale}'
@@ -203,7 +183,6 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  LlmsDottxtRoute: LlmsDottxtRoute,
   Char123LocaleChar125SplatRoute: Char123LocaleChar125SplatRoute,
   Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
   Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,

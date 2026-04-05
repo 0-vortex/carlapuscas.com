@@ -1,10 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/llms.txt')({
-  server: {
-    handlers: {
-      GET: async () => {
-        const content = `# Carla Puscas — Clinical & Educational Psychologist
+# Carla Puscas — Clinical & Educational Psychologist
 
 > Carla Puscas is a clinical psychologist, educational psychologist, and vocational counselor based in Oradea, Romania. She offers evidence-based therapy, educational assessments, and career guidance grounded in warmth, empathy, and genuine human connection.
 
@@ -36,15 +30,3 @@ Structured guidance for career exploration, decision-making, and professional de
 
 ## Blog Topics
 Monthly articles on clinical psychology, educational psychology, career guidance, and wellbeing. Topics include therapy expectations, supporting children through academic pressure, career transitions at midlife, and evidence-based wellbeing strategies.
-`
-
-        return new Response(content, {
-          headers: {
-            'Content-Type': 'text/plain; charset=utf-8',
-            'Cache-Control': 'public, max-age=86400',
-          },
-        })
-      },
-    },
-  },
-})
