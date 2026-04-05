@@ -16,12 +16,10 @@ function AboutPage() {
   return (
     <>
       {/* Hero header */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="text-center mb-16 max-w-[1140px] mx-auto px-6">
-          <span className="inline-block font-display text-xs font-bold tracking-[0.15em] uppercase text-sage bg-sage-light px-4 py-1.5 rounded-full mb-4">
-            About
-          </span>
-          <h1 className="font-display font-bold text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight text-brown mb-4">
+          <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">About</p>
+          <h1 className="font-display font-bold text-2xl md:text-4xl leading-tight text-brown mb-4">
             About Carla
           </h1>
           <p className="text-lg text-brown-muted max-w-xl mx-auto">
@@ -32,10 +30,10 @@ function AboutPage() {
       </section>
 
       {/* Professional bio */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
-          <div className="glass p-10 md:p-16 max-w-[800px] mx-auto">
-            <h2 className="font-display font-bold text-[clamp(1.25rem,3vw,1.75rem)] text-brown mb-4">
+          <div className="bg-warm-white border border-brown/8 rounded-2xl p-10 md:p-16 max-w-[800px] mx-auto">
+            <h2 className="font-display font-bold text-xl md:text-2xl text-brown mb-4">
               My Story
             </h2>
             <p className="text-brown-muted leading-relaxed mb-4">
@@ -64,10 +62,10 @@ function AboutPage() {
       </section>
 
       {/* Education & approach */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto">
-            <div className="glass p-10 md:p-16">
+            <div className="bg-warm-white border border-brown/8 rounded-2xl p-10 md:p-16">
               <h3 className="font-display font-bold text-xl text-brown mb-4">
                 Education
               </h3>
@@ -79,7 +77,7 @@ function AboutPage() {
               </ul>
             </div>
 
-            <div className="glass p-10 md:p-16">
+            <div className="bg-warm-white border border-brown/8 rounded-2xl p-10 md:p-16">
               <h3 className="font-display font-bold text-xl text-brown mb-4">
                 My Approach
               </h3>
@@ -97,14 +95,14 @@ function AboutPage() {
 
       {/* CTA */}
       <section className="text-center py-16 max-w-[1140px] mx-auto px-6">
-        <p className="font-display font-semibold text-[clamp(1.125rem,2.5vw,1.5rem)] text-brown mb-4">
+        <p className="font-display font-semibold text-lg md:text-xl text-brown mb-4">
           Ready to take the next step?
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg transition"
+          className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
         >
-          Get in Touch
+          Get in touch
         </Link>
       </section>
     </>

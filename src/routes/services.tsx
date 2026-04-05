@@ -15,9 +15,6 @@ export const Route = createFileRoute('/services')({
 const services = [
   {
     title: 'Clinical Psychology',
-    borderClass: 'border-clay',
-    accentClass: 'text-clay',
-    bulletClass: 'text-clay',
     description:
       'Evidence-based therapy for anxiety, depression, trauma, life transitions, and relational difficulties. I work with adults and older adolescents using an integrative approach grounded in cognitive-behavioral, psychodynamic, and compassion-focused frameworks.',
     whoFor: [
@@ -31,9 +28,6 @@ const services = [
   },
   {
     title: 'Educational Psychology',
-    borderClass: 'border-teal',
-    accentClass: 'text-teal',
-    bulletClass: 'text-teal',
     description:
       'Comprehensive assessments and support for children, teens, and families facing learning differences, developmental challenges, or school-related stress. I collaborate with schools and families to create environments where every learner can thrive.',
     whoFor: [
@@ -47,9 +41,6 @@ const services = [
   },
   {
     title: 'Vocational Counseling',
-    borderClass: 'border-lavender',
-    accentClass: 'text-lavender',
-    bulletClass: 'text-lavender',
     description:
       'Structured guidance for career exploration, decision-making, and professional development. Whether you are a student choosing a path, a professional considering a change, or someone re-entering the workforce, I help you connect your strengths and values to meaningful work.',
     whoFor: [
@@ -67,13 +58,11 @@ function ServicesPage() {
   return (
     <>
       {/* Page header */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="text-center mb-16 max-w-[1140px] mx-auto px-6">
-          <span className="inline-block font-display text-xs font-bold tracking-[0.15em] uppercase text-sage bg-sage-light px-4 py-1.5 rounded-full mb-4">
-            Services
-          </span>
-          <h1 className="font-display font-bold text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight text-brown mb-4">
-            How I Can Help
+          <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">Services</p>
+          <h1 className="font-display font-bold text-2xl md:text-4xl leading-tight text-brown mb-4">
+            How I can help
           </h1>
           <p className="text-lg text-brown-muted max-w-xl mx-auto">
             Three areas of practice, one shared foundation: empathy, evidence,
@@ -84,10 +73,10 @@ function ServicesPage() {
 
       {/* Service detail sections */}
       {services.map((service) => (
-        <section key={service.title} className="py-24">
+        <section key={service.title} className="py-12 md:py-24">
           <div className="max-w-[1140px] mx-auto px-6">
             <div
-              className={`glass p-10 relative overflow-hidden max-w-[860px] mx-auto border-t-4 ${service.borderClass}`}
+              className="bg-warm-white border border-brown/8 rounded-2xl p-10 relative overflow-hidden max-w-[860px] mx-auto border-t-4 border-clay"
             >
               <h2 className="font-display font-bold text-2xl text-brown mb-4">
                 {service.title}
@@ -101,16 +90,16 @@ function ServicesPage() {
                 {/* Who it's for */}
                 <div>
                   <h3
-                    className={`font-display text-sm font-bold uppercase tracking-wider mb-2 ${service.accentClass}`}
+                    className="font-display text-sm font-bold uppercase tracking-wider mb-2 text-clay"
                   >
-                    Who It's For
+                    Who it's for
                   </h3>
                   <ul className="space-y-2 text-brown-muted leading-relaxed">
                     {service.whoFor.map((item) => (
                       <li key={item} className="relative pl-4">
                         <span
                           aria-hidden="true"
-                          className={`absolute left-0 font-bold ${service.bulletClass}`}
+                          className="absolute left-0 font-bold text-clay"
                         >
                           &bull;
                         </span>
@@ -123,9 +112,9 @@ function ServicesPage() {
                 {/* What to expect */}
                 <div>
                   <h3
-                    className={`font-display text-sm font-bold uppercase tracking-wider mb-2 ${service.accentClass}`}
+                    className="font-display text-sm font-bold uppercase tracking-wider mb-2 text-clay"
                   >
-                    What to Expect
+                    What to expect
                   </h3>
                   <p className="text-brown-muted leading-relaxed">
                     {service.expect}
@@ -139,7 +128,7 @@ function ServicesPage() {
 
       {/* CTA */}
       <section className="text-center py-16 max-w-[1140px] mx-auto px-6">
-        <p className="font-display font-semibold text-[clamp(1.125rem,2.5vw,1.5rem)] text-brown mb-4">
+        <p className="font-display font-semibold text-lg md:text-xl text-brown mb-4">
           Not sure which service is right for you?
         </p>
         <p className="text-brown-muted mb-6 max-w-[520px] mx-auto leading-relaxed">
@@ -147,9 +136,9 @@ function ServicesPage() {
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg transition"
+          className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
         >
-          Book a Free Consultation
+          Get in touch
         </Link>
       </section>
     </>

@@ -64,35 +64,29 @@ const services = [
     title: 'Clinical Psychology',
     description:
       'Evidence-based therapy for anxiety, depression, and emotional wellbeing. A safe space to explore, understand, and heal.',
-    shapeClass: 'rounded-full bg-teal-light text-teal group-hover:bg-teal group-hover:text-warm-white',
-    linkColor: 'text-teal',
   },
   {
     icon: <HeartIcon />,
-    title: 'Wellbeing Coaching',
+    title: 'Educational Psychology',
     description:
-      'Practical strategies rooted in positive psychology to help you build resilience, set boundaries, and thrive.',
-    shapeClass: 'rounded-[20px] bg-coral-light text-coral group-hover:bg-coral group-hover:text-warm-white',
-    linkColor: 'text-coral',
+      'Assessments and tailored support for learning differences, neurodevelopmental needs, and academic confidence at every stage.',
   },
   {
     icon: <BookIcon />,
-    title: 'Educational Support',
+    title: 'Vocational Counseling',
     description:
-      'Assessments and guidance for learning differences, school transitions, and academic confidence at every stage.',
-    shapeClass: 'w-12 h-[4.5rem] rounded-full bg-lavender-light text-lavender group-hover:bg-lavender group-hover:text-warm-white',
-    linkColor: 'text-lavender',
+      'Guidance for career transitions, vocational planning, and finding meaningful work aligned with your strengths and values.',
   },
 ]
 
 export function ServicesOverview() {
   return (
-    <section className="py-24" aria-labelledby="services-title">
+    <section className="py-12 md:py-24" aria-labelledby="services-title">
       <div className="text-center mb-16 max-w-[1140px] mx-auto px-6">
-        <span className="font-display font-semibold text-xs uppercase tracking-[0.15em] text-sage bg-sage-light px-4 py-1.5 rounded-full inline-block mb-4">
+        <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">
           Services
-        </span>
-        <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight text-brown mb-4" id="services-title">
+        </p>
+        <h2 className="font-display font-bold text-2xl md:text-4xl leading-tight text-brown mb-4 text-balance" id="services-title">
           How I can help
         </h2>
         <p className="text-brown-muted max-w-lg mx-auto mb-16">
@@ -101,19 +95,19 @@ export function ServicesOverview() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1140px] mx-auto px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[1140px] mx-auto px-6">
         {services.map((service) => (
-          <article key={service.title} className="glass p-10 transition hover:-translate-y-1 hover:shadow-xl group">
+          <article key={service.title} className="bg-warm-white border border-brown/8 rounded-2xl p-6 md:p-10 transition hover:-translate-y-1 hover:shadow-xl group min-w-0 break-words">
             <div className="flex justify-center mb-6">
-              <div className={`w-[4.5rem] h-[4.5rem] flex items-center justify-center transition ${service.shapeClass}`}>
+              <div className="w-16 h-16 flex items-center justify-center transition rounded-full bg-clay-light text-clay group-hover:bg-clay group-hover:text-warm-white">
                 {service.icon}
               </div>
             </div>
             <h3 className="font-display font-bold text-xl text-brown mb-4">{service.title}</h3>
-            <p className="text-brown-muted text-[0.9375rem] leading-relaxed mb-6">{service.description}</p>
+            <p className="text-brown-muted text-sm leading-relaxed mb-6 line-clamp-3">{service.description}</p>
             <Link
               to="/services"
-              className={`inline-flex items-center gap-1.5 font-display font-semibold text-sm hover:gap-3 transition-all ${service.linkColor}`}
+              className="inline-flex items-center gap-1.5 font-display font-semibold text-sm hover:gap-3 transition-all text-clay"
             >
               Learn more
               <span aria-hidden="true">&rarr;</span>

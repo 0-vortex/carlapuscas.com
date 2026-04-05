@@ -1,4 +1,19 @@
-# carlapuscas.com
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project
+
+**carlapuscas.com**
+
+## Repository
+
+- **Remote**: git@github.com:0-vortex/carlapuscas.com.git
+- **IDE**: WebStorm
+- **Stack**: TanStack Start (React 19) + Tailwind CSS v4 + TypeScript + Vite
+- **Dev**: `npm run dev` (port 3000) · `npm run build` · `npm run preview`
+- **Hosting**: GitHub Pages (static prerendering, deployed via GitHub Actions on push to main)
+- **Build output**: `dist/client/` contains all prerendered HTML + JS + CSS assets
 
 ## Tech Stack
 - **Framework**: TanStack Start (React-based, full-stack)

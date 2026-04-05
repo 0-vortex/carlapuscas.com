@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex justify-between items-center flex-wrap gap-6">
           <div>
             <p className="font-display font-bold text-lg text-brown">Carla Puscas</p>
-            <p className="text-sm text-brown-muted text-center leading-relaxed">
+            <p className="text-sm text-brown-muted leading-relaxed">
               Clinical &amp; Educational Psychologist
               <br />
               &copy; {year} Carla Puscas. All rights reserved.
@@ -20,12 +20,6 @@ export function Footer() {
             <Link to="/contact" className="text-sm text-brown-muted hover:bg-cream px-4 py-2 rounded-full transition">
               Contact
             </Link>
-            <a href="/privacy" className="text-sm text-brown-muted hover:bg-cream px-4 py-2 rounded-full transition">
-              Privacy
-            </a>
-            <a href="/terms" className="text-sm text-brown-muted hover:bg-cream px-4 py-2 rounded-full transition">
-              Terms
-            </a>
           </nav>
         </div>
       </div>
