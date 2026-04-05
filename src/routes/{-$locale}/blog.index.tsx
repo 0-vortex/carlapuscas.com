@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { allPosts, allPostsRos, allPostsHus } from 'content-collections'
 import { seo } from '~/lib/seo'
 import { useLocale } from '~/i18n/useLocale'
+import { useLocalePath } from '~/i18n/useLocalePath'
 import { t, defaultLocale } from '~/i18n/translations'
 import type { Locale } from '~/i18n/translations'
 
@@ -33,6 +34,7 @@ export const Route = createFileRoute('/{-$locale}/blog/')({
 
 function BlogPage() {
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
 
   const localePosts = getLocalePosts(locale)
@@ -63,8 +65,7 @@ function BlogPage() {
                 className="bg-warm-white border border-brown/8 rounded-2xl transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <Link
-                  to="/blog/$slug"
-                  params={{ slug: post.slug }}
+                  to={`${lp('/blog')}/${post.slug}`}
                   className="block p-6 md:p-8 no-underline text-inherit group"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -103,7 +104,7 @@ function BlogPage() {
           {i18n.blog.suggestTopic}
         </p>
         <Link
-          to="/contact"
+          to={lp('/contact')}
           className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full border-2 border-brown/20 text-brown hover:border-brown focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
         >
           {i18n.blog.suggestTopicCta}

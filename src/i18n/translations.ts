@@ -16,6 +16,7 @@ type TranslationKeys = {
     contact: string
     menu: string
     closeMenu: string
+    languageLabel: string
   }
   // Hero
   hero: {
@@ -163,6 +164,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       contact: 'Contact',
       menu: 'Menu',
       closeMenu: 'Close menu',
+      languageLabel: 'Language',
     },
     hero: {
       headline: 'Helping you find',
@@ -354,6 +356,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       contact: 'Contact',
       menu: 'Meniu',
       closeMenu: 'Inchide meniul',
+      languageLabel: 'Limba',
     },
     hero: {
       headline: 'Va ajut sa gasiti',
@@ -548,6 +551,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       contact: 'Kapcsolat',
       menu: 'Menu',
       closeMenu: 'Menu bezarasa',
+      languageLabel: 'Nyelv',
     },
     hero: {
       headline: 'Segitseget nyujtok a',

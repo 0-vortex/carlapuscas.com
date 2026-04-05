@@ -1,10 +1,12 @@
 import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/useLocale'
+import { useLocalePath } from '~/i18n/useLocalePath'
 import { t } from '~/i18n/translations'
 
 export function Footer() {
   const year = new Date().getFullYear()
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
 
   return (
@@ -21,7 +23,7 @@ export function Footer() {
           </div>
 
           <nav className="flex gap-6" aria-label="Footer navigation">
-            <Link to="/contact" className="text-sm text-brown-muted hover:bg-cream px-4 py-2 rounded-full transition">
+            <Link to={lp('/contact')} className="text-sm text-brown-muted hover:bg-cream px-4 py-2 rounded-full transition">
               {i18n.footer.contactLink}
             </Link>
           </nav>

@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router'
 import { allPosts, allPostsRos, allPostsHus } from 'content-collections'
 import { useLocale } from '~/i18n/useLocale'
-import { t, defaultLocale } from '~/i18n/translations'
+import { useLocalePath } from '~/i18n/useLocalePath'
+import { t } from '~/i18n/translations'
 import type { Locale } from '~/i18n/translations'
 
 function getLocalePosts(locale: Locale) {
@@ -18,8 +19,8 @@ const dateLocaleMap: Record<Locale, string> = {
 
 export function BlogTeaser() {
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
-  const basePath = locale === defaultLocale ? '' : `/${locale}`
 
   const localePosts = getLocalePosts(locale)
   const latestPosts = [...localePosts]
@@ -49,7 +50,7 @@ export function BlogTeaser() {
             className={`bg-warm-white border border-brown/8 rounded-2xl p-6 md:p-10 transition hover:-translate-y-1 hover:shadow-xl min-w-0 ${index === 0 ? 'lg:row-span-2' : ''}`}
           >
             <Link
-              to={`${basePath}/blog/${post.slug}`}
+              to={`${lp('/blog')}/${post.slug}`}
               className="flex flex-col h-full no-underline text-inherit group break-words"
             >
               <span className="inline-block font-display text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full w-fit mb-4 bg-clay-light text-clay">

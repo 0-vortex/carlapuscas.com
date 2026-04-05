@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { seo } from '~/lib/seo'
 import { useLocale } from '~/i18n/useLocale'
+import { useLocalePath } from '~/i18n/useLocalePath'
 import { t, defaultLocale } from '~/i18n/translations'
 import type { Locale } from '~/i18n/translations'
 
@@ -69,6 +70,7 @@ export const Route = createFileRoute('/{-$locale}/services')({
 
 function ServicesPage() {
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
 
   const services = [
@@ -171,7 +173,7 @@ function ServicesPage() {
           {i18n.servicesPage.ctaSubtitle}
         </p>
         <Link
-          to="/contact"
+          to={lp('/contact')}
           className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
         >
           {i18n.servicesPage.ctaButton}

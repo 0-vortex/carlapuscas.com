@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/useLocale'
+import { useLocalePath } from '~/i18n/useLocalePath'
 import { t } from '~/i18n/translations'
 
 function BrainIcon() {
@@ -64,6 +65,7 @@ const serviceIcons = [<BrainIcon />, <HeartIcon />, <BookIcon />]
 
 export function ServicesOverview() {
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
 
   const services = [
@@ -109,7 +111,7 @@ export function ServicesOverview() {
             <h3 className="font-display font-bold text-xl text-brown mb-4">{service.title}</h3>
             <p className="text-brown-muted text-sm leading-relaxed mb-6 line-clamp-3">{service.description}</p>
             <Link
-              to="/services"
+              to={lp('/services')}
               className="inline-flex items-center gap-1.5 font-display font-semibold text-sm hover:gap-3 transition-all text-clay"
             >
               {i18n.services.learnMore}

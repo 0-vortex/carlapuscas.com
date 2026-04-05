@@ -8,7 +8,7 @@ import {
 } from '@tanstack/react-router'
 import { Header } from '~/components/layout/Header'
 import { Footer } from '~/components/layout/Footer'
-import { LanguageSwitcher } from '~/components/layout/LanguageSwitcher'
+import { useLocale } from '~/i18n/useLocale'
 import appCss from '~/styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -107,8 +107,10 @@ export const Route = createRootRoute({
 })
 
 function RootComponent() {
+  const locale = useLocale()
+
   return (
-    <RootDocument>
+    <RootDocument lang={locale}>
       <div
         className="aurora-bg fixed inset-0 -z-10 bg-warm-white animate-[aurora-shift_70s_ease-in-out_infinite_alternate]"
         style={{
@@ -130,7 +132,6 @@ function RootComponent() {
       </a>
 
       <Header />
-      <LanguageSwitcher />
 
       <main id="main-content">
         <Outlet />
@@ -141,9 +142,9 @@ function RootComponent() {
   )
 }
 
-function RootDocument({ children }: { children: ReactNode }) {
+function RootDocument({ children, lang = 'en' }: { children: ReactNode; lang?: string }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <HeadContent />
       </head>

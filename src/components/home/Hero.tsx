@@ -1,9 +1,11 @@
 import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/useLocale'
+import { useLocalePath } from '~/i18n/useLocalePath'
 import { t } from '~/i18n/translations'
 
 export function Hero() {
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
 
   return (
@@ -21,13 +23,13 @@ export function Hero() {
 
         <div className="flex gap-4 justify-center flex-wrap">
           <Link
-            to="/contact"
+            to={lp('/contact')}
             className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
           >
             {i18n.hero.cta}
           </Link>
           <Link
-            to="/blog"
+            to={lp('/blog')}
             className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-transparent border-2 border-brown/20 text-brown hover:border-brown focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
           >
             {i18n.hero.ctaSecondary}

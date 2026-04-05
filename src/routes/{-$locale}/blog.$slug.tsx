@@ -4,6 +4,7 @@ import { renderMarkdown } from '~/lib/markdown'
 import { seo } from '~/lib/seo'
 import parse from 'html-react-parser'
 import { useLocale } from '~/i18n/useLocale'
+import { useLocalePath } from '~/i18n/useLocalePath'
 import { t, defaultLocale, isValidLocale } from '~/i18n/translations'
 import type { Locale } from '~/i18n/translations'
 
@@ -65,6 +66,7 @@ export const Route = createFileRoute('/{-$locale}/blog/$slug')({
 function BlogPostPage() {
   const { post, markup } = Route.useLoaderData()
   const locale = useLocale()
+  const lp = useLocalePath()
   const i18n = t(locale)
 
   return (
@@ -109,7 +111,7 @@ function BlogPostPage() {
         {/* Back to blog */}
         <div className="max-w-2xl mt-16 pt-8 border-t border-brown/8">
           <Link
-            to="/blog"
+            to={lp('/blog')}
             className="inline-flex items-center gap-2 font-display font-semibold text-sm text-clay hover:gap-3 transition-all"
           >
             <span aria-hidden="true">&larr;</span> {i18n.blog.backToArticles}

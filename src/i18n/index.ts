@@ -7,3 +7,4 @@ export {
   type Locale,
 } from './translations'
 export { useLocale } from './useLocale'
+export { useLocalePath } from './useLocalePath'
