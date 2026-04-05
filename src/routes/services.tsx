@@ -8,6 +8,55 @@ export const Route = createFileRoute('/services')({
       description:
         'Explore clinical psychology, educational psychology, and vocational counseling services offered by Carla Puscas.',
     }),
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'MedicalBusiness',
+          name: 'Carla Puscas Psychology Practice',
+          url: 'https://carlapuscas.com/services',
+          provider: {
+            '@type': 'Person',
+            name: 'Carla Puscas',
+            jobTitle: 'Clinical & Educational Psychologist',
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Psychology Services',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Clinical Psychology',
+                  description:
+                    'Evidence-based therapy for anxiety, depression, trauma, and life transitions.',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Educational Psychology',
+                  description:
+                    'Assessments and support for learning differences, developmental challenges, and school-related stress.',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Vocational Counseling',
+                  description:
+                    'Career exploration, decision-making, and professional development guidance.',
+                },
+              },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 })

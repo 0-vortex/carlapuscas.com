@@ -8,6 +8,40 @@ export const Route = createFileRoute('/about')({
       description:
         'Learn about Carla Puscas — clinical psychologist, educational psychologist, and vocational counselor dedicated to helping people thrive.',
     }),
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Carla Puscas',
+          jobTitle: 'Clinical & Educational Psychologist',
+          url: 'https://carlapuscas.com/about',
+          description:
+            'Clinical psychologist, educational psychologist, and vocational counselor with a focus on evidence-based practice, warmth, and genuine human connection.',
+          knowsAbout: [
+            'Clinical Psychology',
+            'Educational Psychology',
+            'Vocational Counseling',
+            'Cognitive Behavioral Therapy',
+            'Learning Differences',
+            'Career Transitions',
+          ],
+          hasCredential: [
+            {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'degree',
+              name: 'Master of Clinical Psychology',
+            },
+            {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'degree',
+              name: 'Graduate Diploma in Educational Psychology',
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 })

@@ -9,6 +9,26 @@ export const Route = createFileRoute('/contact')({
       description:
         'Get in touch with Carla Puscas for clinical psychology, educational psychology, or vocational counseling.',
     }),
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          mainEntity: {
+            '@type': 'Person',
+            name: 'Carla Puscas',
+            email: 'hello@carlapuscas.com',
+            jobTitle: 'Clinical & Educational Psychologist',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Cluj-Napoca',
+              addressCountry: 'RO',
+            },
+          },
+        }),
+      },
+    ],
   }),
   component: ContactPage,
 })

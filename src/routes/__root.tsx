@@ -33,6 +33,31 @@ export const Route = createRootRoute({
         href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap',
       },
     ],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Carla Puscas — Clinical & Educational Psychologist',
+          url: 'https://carlapuscas.com',
+          publisher: {
+            '@type': 'Person',
+            name: 'Carla Puscas',
+            jobTitle: 'Clinical & Educational Psychologist',
+            url: 'https://carlapuscas.com',
+            sameAs: [],
+            knowsAbout: [
+              'Clinical Psychology',
+              'Educational Psychology',
+              'Vocational Counseling',
+              'Cognitive Behavioral Therapy',
+              'Psychoeducational Assessment',
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: RootComponent,
   notFoundComponent: () => {
