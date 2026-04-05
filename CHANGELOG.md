@@ -5,6 +5,12 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.0.1](https://github.com/0-vortex/carlapuscas.com/compare/v1.0.0...v1.0.1) (2026-04-05)
+
+### 🐛 Bug Fixes
+
+* correct content collections incompatible with vite@8 ([a72a688](https://github.com/0-vortex/carlapuscas.com/commit/a72a6885f5514ee086a1355efef0f96fcfafae1f))
+
 ## 1.0.0 (2026-04-05)
 
 ### 🍕 Features
