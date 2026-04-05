@@ -5,6 +5,12 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.0.2](https://github.com/0-vortex/carlapuscas.com/compare/v1.0.1...v1.0.2) (2026-04-05)
+
+### 🐛 Bug Fixes
+
+* correct hungarian diacritics ([bf60519](https://github.com/0-vortex/carlapuscas.com/commit/bf6051901499e0596c8b3c11b00873c3f528f5cf))
+
 ## [1.0.1](https://github.com/0-vortex/carlapuscas.com/compare/v1.0.0...v1.0.1) (2026-04-05)
 
 ### 🐛 Bug Fixes
