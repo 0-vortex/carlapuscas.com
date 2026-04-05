@@ -5,7 +5,7 @@ import { t } from '~/i18n/translations'
 
 const localeOptions: Record<Locale, { flag: string; label: string }> = {
   en: { flag: '\u{1F1EC}\u{1F1E7}', label: 'English' },
-  ro: { flag: '\u{1F1F7}\u{1F1F4}', label: 'Romana' },
+  ro: { flag: '\u{1F1F7}\u{1F1F4}', label: 'Română' },
   hu: { flag: '\u{1F1ED}\u{1F1FA}', label: 'Magyar' },
 }
 
