@@ -24,7 +24,7 @@ export const Route = createFileRoute('/{-$locale}/blog/$slug')({
   loader: async ({ params }) => {
     const locale = (params.locale && isValidLocale(params.locale) ? params.locale : defaultLocale) as Locale
     const localePosts = getLocalePosts(locale)
-    const post = localePosts.find((p) => p.slug === params.slug)
+    const post = localePosts.find((p: { slug: string }) => p.slug === params.slug)
     if (!post) throw notFound()
     const markup = await renderMarkdown(post.content)
     return { post, markup }

@@ -65,7 +65,7 @@ function BlogPage() {
                 className="bg-warm-white border border-brown/8 rounded-2xl transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <Link
-                  to={`${lp('/blog')}/${post.slug}`}
+                  to={`${lp('/blog')}/${post.slug}` as string}
                   className="block p-6 md:p-8 no-underline text-inherit group"
                 >
                   <div className="flex items-center justify-between mb-4">

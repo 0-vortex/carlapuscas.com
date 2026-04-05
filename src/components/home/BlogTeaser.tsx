@@ -50,7 +50,7 @@ export function BlogTeaser() {
             className={`bg-warm-white border border-brown/8 rounded-2xl p-6 md:p-10 transition hover:-translate-y-1 hover:shadow-xl min-w-0 ${index === 0 ? 'lg:row-span-2' : ''}`}
           >
             <Link
-              to={`${lp('/blog')}/${post.slug}`}
+              to={`${lp('/blog')}/${post.slug}` as string}
               className="flex flex-col h-full no-underline text-inherit group break-words"
             >
               <span className="inline-block font-display text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full w-fit mb-4 bg-clay-light text-clay">
