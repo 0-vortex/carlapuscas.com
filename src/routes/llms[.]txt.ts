@@ -6,7 +6,7 @@ export const Route = createFileRoute('/llms.txt')({
       GET: async () => {
         const content = `# Carla Puscas — Clinical & Educational Psychologist
 
-> Carla Puscas is a clinical psychologist, educational psychologist, and vocational counselor based in Cluj-Napoca, Romania. She offers evidence-based therapy, educational assessments, and career guidance grounded in warmth, empathy, and genuine human connection.
+> Carla Puscas is a clinical psychologist, educational psychologist, and vocational counselor based in Oradea, Romania. She offers evidence-based therapy, educational assessments, and career guidance grounded in warmth, empathy, and genuine human connection.
 
 ## Services
 
@@ -20,11 +20,12 @@ Comprehensive assessments and support for children, teens, and families facing l
 Structured guidance for career exploration, decision-making, and professional development. Helping individuals connect their strengths, values, and aspirations to meaningful work.
 
 ## Key Facts
-- Location: Cluj-Napoca, Romania (in-person and online worldwide)
-- Languages: Romanian, English
+- Location: Oradea, Strada William Shakespeare Nr. 5, Romania (in-person and online worldwide)
+- Languages: Romanian, English, Hungarian
 - Approach: Evidence-based, integrative, person-centered
 - Specializations: Anxiety, depression, learning differences, career transitions, school-related stress
-- Contact: hello@carlapuscas.com
+- Phone: +40741659943
+- Contact: carlapuscas9@gmail.com
 
 ## Pages
 - Home: https://carlapuscas.com

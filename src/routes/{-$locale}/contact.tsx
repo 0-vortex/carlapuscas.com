@@ -23,11 +23,13 @@ export const Route = createFileRoute('/{-$locale}/contact')({
             mainEntity: {
               '@type': 'Person',
               name: 'Carla Puscas',
-              email: 'hello@carlapuscas.com',
+              email: 'carlapuscas9@gmail.com',
+              telephone: '+40741659943',
               jobTitle: 'Clinical & Educational Psychologist',
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Cluj-Napoca',
+                streetAddress: 'Strada William Shakespeare Nr. 5',
+                addressLocality: 'Oradea',
                 addressCountry: 'RO',
               },
             },
@@ -109,10 +111,10 @@ function ContactPage() {
                   {i18n.contact.email}
                 </h3>
                 <a
-                  href="mailto:hello@carlapuscas.com"
+                  href="mailto:carlapuscas9@gmail.com"
                   className="text-brown-muted underline underline-offset-4"
                 >
-                  hello@carlapuscas.com
+                  carlapuscas9@gmail.com
                 </a>
               </div>
 
@@ -221,12 +223,13 @@ function ContactPage() {
                     >
                       {i18n.contact.serviceInterest}
                     </label>
+                    <div className="relative">
                     <select
                       id="contact-service"
                       name="service"
                       value={form.service}
                       onChange={handleChange}
-                      className={inputClasses}
+                      className={`${inputClasses} appearance-none pr-10 cursor-pointer`}
                     >
                       <option value="">{i18n.contact.serviceSelect}</option>
                       <option value="clinical">{i18n.contact.serviceClinical}</option>
@@ -236,6 +239,10 @@ function ContactPage() {
                       <option value="vocational">{i18n.contact.serviceVocational}</option>
                       <option value="not-sure">{i18n.contact.serviceNotSure}</option>
                     </select>
+                    <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-brown-muted" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    </div>
                   </div>
 
                   <div>

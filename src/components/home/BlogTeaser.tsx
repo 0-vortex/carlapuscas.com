@@ -54,7 +54,7 @@ export function BlogTeaser() {
               className="flex flex-col h-full no-underline text-inherit group break-words"
             >
               <span className="inline-block font-display text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full w-fit mb-4 bg-clay-light text-clay">
-                {post.tag}
+                {i18n.blog.tags[post.tag] || post.tag}
               </span>
               <time className="font-display font-medium text-sm text-brown-muted mb-2" dateTime={post.published}>
                 {new Date(post.published).toLocaleDateString(dateLocaleMap[locale], {

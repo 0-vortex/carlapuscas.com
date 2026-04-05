@@ -125,12 +125,12 @@ function AboutPage() {
         <p className="font-display font-semibold text-lg md:text-xl text-brown mb-4">
           {i18n.about.ctaText}
         </p>
-        <Link
-          to={lp('/contact')}
-          className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
+        <a
+          href="tel:+40741659943"
+          className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition no-underline"
         >
           {i18n.about.ctaButton}
-        </Link>
+        </a>
       </section>
     </>
   )

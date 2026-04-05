@@ -46,6 +46,7 @@ type TranslationKeys = {
     backToArticles: string
     suggestTopic: string
     suggestTopicCta: string
+    tags: Record<string, string>
   }
   // Contact CTA
   cta: {
@@ -207,6 +208,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       suggestTopic:
         'Have a question or a topic you would like me to write about?',
       suggestTopicCta: 'Send a suggestion',
+      tags: { Therapy: 'Therapy', Wellbeing: 'Wellbeing', Education: 'Education', Career: 'Career' },
     },
     cta: {
       title: 'The first step is simple',
@@ -222,7 +224,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       infoTitle: 'Contact Information',
       email: 'Email',
       location: 'Location',
-      locationValue: 'In-person sessions available in Cluj-Napoca, Romania.',
+      locationValue: 'In-person sessions available in Oradea, Strada William Shakespeare Nr. 5, Romania.',
       locationOnline: 'Online sessions available worldwide.',
       responseTime: 'Response Time',
       responseTimeValue:
@@ -264,9 +266,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       educationTitle: 'Education',
       educationItems: [
         'Master of Clinical Psychology',
-        'Graduate Diploma in Educational Psychology',
+        'Master of Educational Psychology',
         'Certified Vocational Counselor',
-        'Ongoing professional development in trauma-informed care',
       ],
       approachTitle: 'My Approach',
       approachText:
@@ -340,7 +341,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     meta: {
       siteTitle: 'Carla Puscas — Clinical & Educational Psychologist',
       siteDescription:
-        'Clinical and educational psychology grounded in warmth and evidence. Therapy, assessments, and vocational counseling in Cluj-Napoca and online.',
+        'Clinical and educational psychology grounded in warmth and evidence. Therapy, assessments, and vocational counseling in Oradea and online.',
     },
   },
 
@@ -399,6 +400,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       suggestTopic:
         'Aveți o întrebare sau un subiect despre care ați dori să scriu?',
       suggestTopicCta: 'Trimiteți o sugestie',
+      tags: { Therapy: 'Terapie', Wellbeing: 'Bunăstare', Education: 'Educație', Career: 'Carieră' },
     },
     cta: {
       title: 'Primul pas este simplu',
@@ -415,7 +417,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       email: 'Email',
       location: 'Locație',
       locationValue:
-        'Ședințe în cabinet disponibile în Cluj-Napoca, România.',
+        'Ședințe în cabinet disponibile în Oradea, Strada William Shakespeare Nr. 5, România.',
       locationOnline: 'Ședințe online disponibile la nivel internațional.',
       responseTime: 'Timp de răspuns',
       responseTimeValue:
@@ -458,9 +460,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       educationTitle: 'Formare profesională',
       educationItems: [
         'Master în Psihologie Clinică',
-        'Diplomă postuniversitară în Psihologie Educațională',
+        'Master în Psihologie Educațională',
         'Consilier vocațional atestat',
-        'Dezvoltare profesională continuă în îngrijirea informată de traumă',
       ],
       approachTitle: 'Abordarea mea',
       approachText:
@@ -511,7 +512,7 @@ export const translations: Record<Locale, TranslationKeys> = {
         description:
           'Orientare structurată pentru explorarea carierei, luarea deciziilor și dezvoltarea profesională. Fie că sunteți student la început de drum, profesionist care ia în considerare o schimbare sau cineva care reintră pe piața muncii, vă ajut să vă conectați punctele forte și valorile cu o muncă plină de sens.',
         whoFor: [
-          'Studenți și tineri adulți care explorează direcții de carieră',
+          'Elevi, studenți și tineri adulți care explorează direcții de carieră',
           'Profesioniști care iau în considerare o schimbare de carieră sau se simt blocați',
           'Persoane care se întorc la muncă după o pauză',
           'Oricine dorește mai mult sens și aliniere în viața profesională',
@@ -535,7 +536,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     meta: {
       siteTitle: 'Carla Puscas — Psiholog clinician și educațional',
       siteDescription:
-        'Psihologie clinică și educațională fundamentată pe căldură umană și dovezi științifice. Terapie, evaluări și consiliere vocațională în Cluj-Napoca și online.',
+        'Psihologie clinică și educațională fundamentată pe căldură umană și dovezi științifice. Terapie, evaluări și consiliere vocațională în Oradea și online.',
     },
   },
 
@@ -594,6 +595,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       suggestTopic:
         'Van kerdese, vagy van egy tema, amelyrol szivesen olvasna?',
       suggestTopicCta: 'Kuldjeon javaslatot',
+      tags: { Therapy: 'Terápia', Wellbeing: 'Jóllét', Education: 'Oktatás', Career: 'Karrier' },
     },
     cta: {
       title: 'Az elso lepes egyszeru',
@@ -610,7 +612,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       email: 'Email',
       location: 'Helyszin',
       locationValue:
-        'Szemelyes konzultaciok Kolozsvarott (Cluj-Napoca), Romaniaban.',
+        'Személyes konzultációk Nagyváradon (Oradea), Strada William Shakespeare Nr. 5, Románia.',
       locationOnline: 'Online konzultaciok vilagszerte elerhetok.',
       responseTime: 'Valaszido',
       responseTimeValue:
@@ -651,10 +653,9 @@ export const translations: Record<Locale, TranslationKeys> = {
         'A palyavalasztasi tanacsadas munkam termeszetes kiterjeszteseve valt, amint felismertem, milyen melyen erintheti a palyavalasztasi bizonytalansag a lelki egeszseget es az onazonossag-erzest. Az elet minden szakaszaban segitsek egyeneknek, hogy tisztanlatast, celt es iranyt talaljanak szakmai utjukon.',
       educationTitle: 'Vegzettseg',
       educationItems: [
-        'Mesterdiploma klinikai pszichologiabol',
-        'Posztgradualis diploma nevelesi pszichologiabol',
-        'Minositett palyavalasztasi tanacsado',
-        'Folyamatos szakmai fejlodes a traumainformalt gondozas teruleten',
+        'Mesterdiploma klinikai pszichológiából',
+        'Mesterdiploma nevelési pszichológiából',
+        'Minősített pályaválasztási tanácsadó',
       ],
       approachTitle: 'Megkozelitesem',
       approachText:
@@ -728,7 +729,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     meta: {
       siteTitle: 'Carla Puscas — Klinikai es nevelesi pszichologus',
       siteDescription:
-        'Melegseggel es tudomanyos megalapozottsaggal vegzett klinikai es nevelesi pszichologia. Terapia, felmeresek es palyavalasztasi tanacsadas Kolozsvaron es online.',
+        'Melegséggel és tudományos megalapozottsággal végzett klinikai és nevelési pszichológia. Terápia, felmérések és pályaválasztási tanácsadás Nagyváradon és online.',
     },
   },
 }

@@ -1,11 +1,8 @@
-import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/useLocale'
-import { useLocalePath } from '~/i18n/useLocalePath'
 import { t } from '~/i18n/translations'
 
 export function ContactCTA() {
   const locale = useLocale()
-  const lp = useLocalePath()
   const i18n = t(locale)
 
   return (
@@ -18,12 +15,12 @@ export function ContactCTA() {
           <p className="text-brown-muted max-w-md mx-auto mb-8">
             {i18n.cta.subtitle}
           </p>
-          <Link
-            to={lp('/contact')}
-            className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
+          <a
+            href="tel:+40741659943"
+            className="inline-flex items-center gap-2 font-display font-semibold px-9 py-3.5 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition no-underline"
           >
             {i18n.cta.button}
-          </Link>
+          </a>
         </div>
       </div>
     </section>

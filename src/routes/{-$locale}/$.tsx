@@ -43,12 +43,12 @@ function NotFoundPage() {
           >
             {i18n.notFound.goHome}
           </Link>
-          <Link
-            to={lp('/contact')}
-            className="inline-flex items-center gap-2 font-display font-semibold px-8 py-3 rounded-full border-2 border-brown/20 text-brown hover:border-brown focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition"
+          <a
+            href="tel:+40741659943"
+            className="inline-flex items-center gap-2 font-display font-semibold px-8 py-3 rounded-full border-2 border-brown/20 text-brown hover:border-brown focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition no-underline"
           >
             {i18n.notFound.getInTouch}
-          </Link>
+          </a>
         </div>
       </div>
     </section>

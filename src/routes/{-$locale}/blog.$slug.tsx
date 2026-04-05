@@ -76,7 +76,7 @@ function BlogPostPage() {
         <header className="max-w-2xl mb-12">
           <div className="flex items-center gap-3 mb-4">
             <span className="inline-block text-xs font-semibold tracking-wider uppercase bg-clay-light text-clay px-3 py-1 rounded-full">
-              {post.tag}
+              {i18n.blog.tags[post.tag] || post.tag}
             </span>
             <span className="text-sm text-brown-muted">
               {post.readingTime} {i18n.blog.minRead}
