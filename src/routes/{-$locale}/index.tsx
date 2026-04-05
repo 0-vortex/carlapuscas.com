@@ -6,19 +6,28 @@ import { ContactCTA } from '~/components/home/ContactCTA'
 import { WaveDivider } from '~/components/ui/WaveDivider'
 import { FanDivider } from '~/components/ui/FanDivider'
 import { seo } from '~/lib/seo'
+import { useLocale } from '~/i18n/useLocale'
+import { t, defaultLocale } from '~/i18n/translations'
+import type { Locale } from '~/i18n/translations'
 
-export const Route = createFileRoute('/')({
-  head: () => ({
-    meta: seo({
-      title: 'Carla Puscas — Clinical & Educational Psychologist',
-      description:
-        'Clinical psychology, educational support, and vocational counseling grounded in empathy, evidence, and genuine human connection.',
-    }),
-  }),
+export const Route = createFileRoute('/{-$locale}/')({
+  head: ({ params }) => {
+    const locale = ((params as any).locale || defaultLocale) as Locale
+    const i18n = t(locale)
+    return {
+      meta: seo({
+        title: i18n.meta.siteTitle,
+        description: i18n.meta.siteDescription,
+      }),
+    }
+  },
   component: HomePage,
 })
 
 function HomePage() {
+  const locale = useLocale()
+  const i18n = t(locale)
+
   return (
     <>
       <Hero />

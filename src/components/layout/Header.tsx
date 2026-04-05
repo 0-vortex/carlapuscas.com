@@ -1,19 +1,23 @@
 'use client'
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
+import { useLocale } from '~/i18n/useLocale'
+import { t } from '~/i18n/translations'
 
 const navLinkClass = "inline-block font-display font-medium text-sm text-brown-muted px-4 py-2 rounded-full hover:bg-cream hover:text-brown transition data-[status=active]:bg-brown data-[status=active]:text-warm-white"
 
-const navItems = [
-  { to: '/', label: 'Home', exact: true },
-  { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/contact', label: 'Contact' },
-]
-
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const locale = useLocale()
+  const i18n = t(locale)
+
+  const navItems = [
+    { to: '/', label: i18n.nav.home, exact: true },
+    { to: '/about', label: i18n.nav.about },
+    { to: '/services', label: i18n.nav.services },
+    { to: '/blog', label: i18n.nav.blog },
+    { to: '/contact', label: i18n.nav.contact },
+  ]
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-warm-white/70 border-b border-white/50">
@@ -56,7 +60,7 @@ export function Header() {
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
         >
-          {isOpen ? 'Close menu' : 'Menu'}
+          {isOpen ? i18n.nav.closeMenu : i18n.nav.menu}
         </button>
       </div>
 

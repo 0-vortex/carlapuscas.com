@@ -1,4 +1,6 @@
 import { Link } from '@tanstack/react-router'
+import { useLocale } from '~/i18n/useLocale'
+import { t } from '~/i18n/translations'
 
 function BrainIcon() {
   return (
@@ -58,40 +60,41 @@ function BookIcon() {
   )
 }
 
-const services = [
-  {
-    icon: <BrainIcon />,
-    title: 'Clinical Psychology',
-    description:
-      'Evidence-based therapy for anxiety, depression, and emotional wellbeing. A safe space to explore, understand, and heal.',
-  },
-  {
-    icon: <HeartIcon />,
-    title: 'Educational Psychology',
-    description:
-      'Assessments and tailored support for learning differences, neurodevelopmental needs, and academic confidence at every stage.',
-  },
-  {
-    icon: <BookIcon />,
-    title: 'Vocational Counseling',
-    description:
-      'Guidance for career transitions, vocational planning, and finding meaningful work aligned with your strengths and values.',
-  },
-]
+const serviceIcons = [<BrainIcon />, <HeartIcon />, <BookIcon />]
 
 export function ServicesOverview() {
+  const locale = useLocale()
+  const i18n = t(locale)
+
+  const services = [
+    {
+      icon: serviceIcons[0],
+      title: i18n.services.clinical.title,
+      description: i18n.services.clinical.description,
+    },
+    {
+      icon: serviceIcons[1],
+      title: i18n.services.educational.title,
+      description: i18n.services.educational.description,
+    },
+    {
+      icon: serviceIcons[2],
+      title: i18n.services.vocational.title,
+      description: i18n.services.vocational.description,
+    },
+  ]
+
   return (
     <section className="py-12 md:py-24" aria-labelledby="services-title">
       <div className="text-center mb-16 max-w-[1140px] mx-auto px-6">
         <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">
-          Services
+          {i18n.services.label}
         </p>
         <h2 className="font-display font-bold text-2xl md:text-4xl leading-tight text-brown mb-4 text-balance" id="services-title">
-          How I can help
+          {i18n.services.title}
         </h2>
         <p className="text-brown-muted max-w-lg mx-auto mb-16">
-          Every person is different. I offer tailored approaches that meet you
-          where you are and help you get where you want to be.
+          {i18n.services.subtitle}
         </p>
       </div>
 
@@ -109,7 +112,7 @@ export function ServicesOverview() {
               to="/services"
               className="inline-flex items-center gap-1.5 font-display font-semibold text-sm hover:gap-3 transition-all text-clay"
             >
-              Learn more
+              {i18n.services.learnMore}
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </article>

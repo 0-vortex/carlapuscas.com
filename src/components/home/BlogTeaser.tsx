@@ -1,79 +1,75 @@
 import { Link } from '@tanstack/react-router'
+import { allPosts, allPostsRos, allPostsHus } from 'content-collections'
+import { useLocale } from '~/i18n/useLocale'
+import { t, defaultLocale } from '~/i18n/translations'
+import type { Locale } from '~/i18n/translations'
 
-const posts = [
-  {
-    id: 'post-1',
-    tag: 'Wellbeing',
-    date: '28 March 2026',
-    dateTime: '2026-03-28',
-    title: 'Five small shifts that make a big difference to your mental health',
-    excerpt:
-      'Change does not have to be dramatic to be meaningful. These everyday micro-habits are backed by research and easy to start today.',
-  },
-  {
-    id: 'post-2',
-    tag: 'Education',
-    date: '14 March 2026',
-    dateTime: '2026-03-14',
-    title: 'Supporting your child through school transitions',
-    excerpt:
-      'Moving between schools is one of the most stressful events in a young person\'s life. Here is how to make it smoother.',
-  },
-  {
-    id: 'post-3',
-    tag: 'Therapy',
-    date: '2 March 2026',
-    dateTime: '2026-03-02',
-    title: 'What to expect from your first session',
-    excerpt:
-      'First appointments can feel daunting. This guide walks you through what happens, what to bring, and how to prepare.',
-  },
-]
+function getLocalePosts(locale: Locale) {
+  if (locale === 'ro') return allPostsRos
+  if (locale === 'hu') return allPostsHus
+  return allPosts
+}
+
+const dateLocaleMap: Record<Locale, string> = {
+  en: 'en-GB',
+  ro: 'ro-RO',
+  hu: 'hu-HU',
+}
 
 export function BlogTeaser() {
+  const locale = useLocale()
+  const i18n = t(locale)
+  const basePath = locale === defaultLocale ? '' : `/${locale}`
+
+  const localePosts = getLocalePosts(locale)
+  const latestPosts = [...localePosts]
+    .sort((a, b) => new Date(b.published).getTime() - new Date(a.published).getTime())
+    .slice(0, 3)
+
   return (
     <section className="py-12 md:py-24" aria-labelledby="blog-title">
       <div className="max-w-[1140px] mx-auto px-6 mb-10">
         <div>
           <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">
-            Blog
+            {i18n.blog.label}
           </p>
           <h2 className="font-display font-bold text-2xl md:text-4xl leading-tight text-brown mb-4 text-balance" id="blog-title">
-            Latest articles
+            {i18n.blog.title}
           </h2>
           <p className="text-brown-muted max-w-lg">
-            Thoughts on mental health, education, and the everyday practice of
-            living well.
+            {i18n.blog.subtitle}
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] lg:grid-rows-[auto_auto] gap-6 max-w-[1140px] mx-auto px-6">
-        {posts.map((post, index) => (
+        {latestPosts.map((post, index) => (
           <article
-            key={post.id}
+            key={post.slug}
             className={`bg-warm-white border border-brown/8 rounded-2xl p-6 md:p-10 transition hover:-translate-y-1 hover:shadow-xl min-w-0 ${index === 0 ? 'lg:row-span-2' : ''}`}
           >
             <Link
-              to="/blog"
+              to={`${basePath}/blog/${post.slug}`}
               className="flex flex-col h-full no-underline text-inherit group break-words"
             >
               <span className="inline-block font-display text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full w-fit mb-4 bg-clay-light text-clay">
                 {post.tag}
               </span>
-              <time className="font-display font-medium text-sm text-brown-muted mb-2" dateTime={post.dateTime}>
-                {post.date}
+              <time className="font-display font-medium text-sm text-brown-muted mb-2" dateTime={post.published}>
+                {new Date(post.published).toLocaleDateString(dateLocaleMap[locale], {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
               </time>
               <h3 className={`font-display font-bold leading-snug text-brown mb-4 line-clamp-2 ${index === 0 ? 'text-xl' : 'text-lg'}`}>
                 {post.title}
               </h3>
               <p className="text-brown-muted text-sm leading-relaxed grow line-clamp-3">
-                {post.excerpt}
+                {post.description}
               </p>
-              <span
-                className="inline-flex items-center gap-1 font-display font-semibold text-sm text-sage mt-4 group-hover:gap-2.5 transition-all"
-              >
-                Read more <span aria-hidden="true">&rarr;</span>
+              <span className="inline-flex items-center gap-1 font-display font-semibold text-sm text-clay mt-4 group-hover:gap-2.5 transition-all" aria-hidden="true">
+                {i18n.blog.readMore} &rarr;
               </span>
             </Link>
           </article>

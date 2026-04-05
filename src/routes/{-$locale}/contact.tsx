@@ -1,39 +1,48 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { seo } from '~/lib/seo'
+import { useLocale } from '~/i18n/useLocale'
+import { t, defaultLocale } from '~/i18n/translations'
+import type { Locale } from '~/i18n/translations'
 
-export const Route = createFileRoute('/contact')({
-  head: () => ({
-    meta: seo({
-      title: 'Contact — Carla Puscas',
-      description:
-        'Get in touch with Carla Puscas for clinical psychology, educational psychology, or vocational counseling.',
-    }),
-    scripts: [
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ContactPage',
-          mainEntity: {
-            '@type': 'Person',
-            name: 'Carla Puscas',
-            email: 'hello@carlapuscas.com',
-            jobTitle: 'Clinical & Educational Psychologist',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Cluj-Napoca',
-              addressCountry: 'RO',
+export const Route = createFileRoute('/{-$locale}/contact')({
+  head: ({ params }) => {
+    const locale = ((params as any).locale || defaultLocale) as Locale
+    const i18n = t(locale)
+    return {
+      meta: seo({
+        title: `${i18n.contact.title} — Carla Puscas`,
+        description: i18n.contact.subtitle,
+      }),
+      scripts: [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            mainEntity: {
+              '@type': 'Person',
+              name: 'Carla Puscas',
+              email: 'hello@carlapuscas.com',
+              jobTitle: 'Clinical & Educational Psychologist',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Cluj-Napoca',
+                addressCountry: 'RO',
+              },
             },
-          },
-        }),
-      },
-    ],
-  }),
+          }),
+        },
+      ],
+    }
+  },
   component: ContactPage,
 })
 
 function ContactPage() {
+  const locale = useLocale()
+  const i18n = t(locale)
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -75,13 +84,12 @@ function ContactPage() {
       {/* Page header */}
       <section className="py-12 md:py-24">
         <div className="text-center mb-16 max-w-[1140px] mx-auto px-6">
-          <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">Contact</p>
+          <p className="font-display font-semibold text-xs uppercase tracking-widest text-brown-muted mb-3">{i18n.contact.label}</p>
           <h1 className="font-display font-bold text-2xl md:text-4xl leading-tight text-brown mb-4">
-            Let's Start a Conversation
+            {i18n.contact.title}
           </h1>
           <p className="text-lg text-brown-muted max-w-xl mx-auto">
-            Whether you have a question, want to book a session, or simply need
-            to talk — I am here and happy to listen.
+            {i18n.contact.subtitle}
           </p>
         </div>
       </section>
@@ -93,12 +101,12 @@ function ContactPage() {
             {/* Contact info */}
             <div className="bg-warm-white border border-brown/8 rounded-2xl p-10 flex flex-col gap-6">
               <h2 className="font-display text-xl font-bold text-brown">
-                Contact Information
+                {i18n.contact.infoTitle}
               </h2>
 
               <div>
                 <h3 className="uppercase tracking-wider text-xs font-display font-semibold text-clay mb-2">
-                  Email
+                  {i18n.contact.email}
                 </h3>
                 <a
                   href="mailto:hello@carlapuscas.com"
@@ -110,22 +118,21 @@ function ContactPage() {
 
               <div>
                 <h3 className="uppercase tracking-wider text-xs font-display font-semibold text-clay mb-2">
-                  Location
+                  {i18n.contact.location}
                 </h3>
                 <p className="text-brown-muted leading-relaxed">
-                  In-person sessions available in Cluj-Napoca, Romania.
+                  {i18n.contact.locationValue}
                   <br />
-                  Online sessions available worldwide.
+                  {i18n.contact.locationOnline}
                 </p>
               </div>
 
               <div>
                 <h3 className="uppercase tracking-wider text-xs font-display font-semibold text-clay mb-2">
-                  Response Time
+                  {i18n.contact.responseTime}
                 </h3>
                 <p className="text-brown-muted leading-relaxed">
-                  I typically respond within 24 to 48 hours during business
-                  days.
+                  {i18n.contact.responseTimeValue}
                 </p>
               </div>
             </div>
@@ -133,22 +140,22 @@ function ContactPage() {
             {/* Contact form */}
             <div className="bg-warm-white border border-brown/8 rounded-2xl p-10">
               <h2 className="font-display text-xl font-bold text-brown mb-6">
-                Send a Message
+                {i18n.contact.formTitle}
               </h2>
 
               {status === 'success' ? (
                 <div className="bg-warm-white border border-brown/8 rounded-2xl p-10 text-center">
                   <h2 className="font-display font-bold text-xl text-brown mb-4">
-                    Message sent
+                    {i18n.contact.successTitle}
                   </h2>
                   <p className="text-brown-muted mb-6">
-                    Thank you for reaching out. I will be in touch soon.
+                    {i18n.contact.successMessage}
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
                     className="inline-flex items-center gap-2 font-display font-semibold px-8 py-3 rounded-full bg-clay text-warm-white hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition cursor-pointer"
                   >
-                    Send another message
+                    {i18n.contact.sendAnother}
                   </button>
                 </div>
               ) : (
@@ -162,7 +169,7 @@ function ContactPage() {
                       htmlFor="contact-name"
                       className="block font-display font-semibold text-sm text-brown mb-2"
                     >
-                      Name
+                      {i18n.contact.name}
                     </label>
                     <input
                       id="contact-name"
@@ -173,7 +180,7 @@ function ContactPage() {
                       autoComplete="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Your name"
+                      placeholder={i18n.contact.namePlaceholder}
                       aria-describedby="name-hint"
                       className={inputClasses}
                     />
@@ -187,7 +194,7 @@ function ContactPage() {
                       htmlFor="contact-email"
                       className="block font-display font-semibold text-sm text-brown mb-2"
                     >
-                      Email
+                      {i18n.contact.emailLabel}
                     </label>
                     <input
                       id="contact-email"
@@ -198,7 +205,7 @@ function ContactPage() {
                       autoComplete="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="you@example.com"
+                      placeholder={i18n.contact.emailPlaceholder}
                       aria-describedby="email-hint"
                       className={inputClasses}
                     />
@@ -212,7 +219,7 @@ function ContactPage() {
                       htmlFor="contact-service"
                       className="block font-display font-semibold text-sm text-brown mb-2"
                     >
-                      Service Interest
+                      {i18n.contact.serviceInterest}
                     </label>
                     <select
                       id="contact-service"
@@ -221,13 +228,13 @@ function ContactPage() {
                       onChange={handleChange}
                       className={inputClasses}
                     >
-                      <option value="">Select a service (optional)</option>
-                      <option value="clinical">Clinical Psychology</option>
+                      <option value="">{i18n.contact.serviceSelect}</option>
+                      <option value="clinical">{i18n.contact.serviceClinical}</option>
                       <option value="educational">
-                        Educational Psychology
+                        {i18n.contact.serviceEducational}
                       </option>
-                      <option value="vocational">Vocational Counseling</option>
-                      <option value="not-sure">Not sure yet</option>
+                      <option value="vocational">{i18n.contact.serviceVocational}</option>
+                      <option value="not-sure">{i18n.contact.serviceNotSure}</option>
                     </select>
                   </div>
 
@@ -236,7 +243,7 @@ function ContactPage() {
                       htmlFor="contact-message"
                       className="block font-display font-semibold text-sm text-brown mb-2"
                     >
-                      Message
+                      {i18n.contact.message}
                     </label>
                     <textarea
                       id="contact-message"
@@ -246,7 +253,7 @@ function ContactPage() {
                       maxLength={2000}
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="Tell me a little about what brings you here..."
+                      placeholder={i18n.contact.messagePlaceholder}
                       aria-describedby="message-hint"
                       className={`${inputClasses} min-h-[160px] resize-y`}
                     />
@@ -265,8 +272,7 @@ function ContactPage() {
                       className="text-sm text-clay bg-clay-light px-4 py-3 rounded-xl"
                       role="alert"
                     >
-                      Something went wrong. Please try again or email me
-                      directly.
+                      {i18n.contact.errorMessage}
                     </p>
                   )}
 
@@ -275,7 +281,7 @@ function ContactPage() {
                     disabled={status === 'submitting'}
                     className={`w-full py-4 rounded-full bg-clay text-warm-white font-display font-semibold hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-2 transition cursor-pointer mt-2 ${status === 'submitting' ? 'opacity-60 cursor-not-allowed' : ''}`}
                   >
-                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                    {status === 'submitting' ? i18n.contact.sending : i18n.contact.send}
                   </button>
                 </form>
               )}

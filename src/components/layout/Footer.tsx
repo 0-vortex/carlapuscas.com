@@ -1,7 +1,11 @@
 import { Link } from '@tanstack/react-router'
+import { useLocale } from '~/i18n/useLocale'
+import { t } from '~/i18n/translations'
 
 export function Footer() {
   const year = new Date().getFullYear()
+  const locale = useLocale()
+  const i18n = t(locale)
 
   return (
     <footer className="py-10 border-t border-brown/8" role="contentinfo">
@@ -10,15 +14,15 @@ export function Footer() {
           <div>
             <p className="font-display font-bold text-lg text-brown">Carla Puscas</p>
             <p className="text-sm text-brown-muted leading-relaxed">
-              Clinical &amp; Educational Psychologist
+              {i18n.footer.credentials}
               <br />
-              &copy; {year} Carla Puscas. All rights reserved.
+              &copy; {year} {i18n.footer.copyright}
             </p>
           </div>
 
           <nav className="flex gap-6" aria-label="Footer navigation">
             <Link to="/contact" className="text-sm text-brown-muted hover:bg-cream px-4 py-2 rounded-full transition">
-              Contact
+              {i18n.footer.contactLink}
             </Link>
           </nav>
         </div>

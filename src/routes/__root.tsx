@@ -8,6 +8,7 @@ import {
 } from '@tanstack/react-router'
 import { Header } from '~/components/layout/Header'
 import { Footer } from '~/components/layout/Footer'
+import { LanguageSwitcher } from '~/components/layout/LanguageSwitcher'
 import appCss from '~/styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -129,6 +130,7 @@ function RootComponent() {
       </a>
 
       <Header />
+      <LanguageSwitcher />
 
       <main id="main-content">
         <Outlet />
